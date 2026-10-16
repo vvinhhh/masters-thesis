@@ -9,8 +9,13 @@ Writes scrollytelling/data.json and scrollytelling/index.html (template.html wit
 data inlined, so the page works as a single file, even opened from disk), and copies the
 page plus social-card.png into docs/, the folder GitHub Pages publishes.
 
-social-card.png (the 1200x627 link-preview image) is drawn by social-card.html; regenerate it
-by opening that page through a local server and saving the canvas.
+social-card.png (the link-preview image for LinkedIn etc.) is a screenshot of the page's first
+screen on a 1440x753 laptop view, scaled to 1200x628. To redo it, serve this folder locally
+(python -m http.server 8765 --directory scrollytelling) and run, in PowerShell:
+
+    & "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" --headless=new --hide-scrollbars `
+      --window-size=1440,753 --force-device-scale-factor=0.8333333 --virtual-time-budget=8000 `
+      --force-dark-mode --screenshot="$PWD\\scrollytelling\\social-card.png" http://localhost:8765/index.html
 """
 import json
 import sys

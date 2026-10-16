@@ -14,7 +14,6 @@
 /scrollytelling/*
 !/scrollytelling/build_data.py
 !/scrollytelling/template.html
-!/scrollytelling/social-card.html
 
 # Local working folder, not published
 /code/old/
