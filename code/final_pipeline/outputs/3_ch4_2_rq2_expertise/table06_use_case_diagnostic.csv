@@ -1,0 +1,17 @@
+platform,release,category,unweighted_task_mean_pct,n_tasks_with_row,conversation_pooled_pct
+Claude.ai,4,work,67.61,28,62.61
+Claude.ai,4,personal,17.58,10,15.03
+Claude.ai,4,coursework,31.34,10,17.12
+Claude.ai,4,not_classified,39.92,28,5.25
+Claude.ai,5,work,76.46,34,71.81
+Claude.ai,5,personal,20.69,16,18.24
+Claude.ai,5,coursework,16.23,8,6.82
+Claude.ai,5,not_classified,23.86,31,3.13
+1P API,4,work,89.63,24,87.35
+1P API,4,personal,11.0,6,6.91
+1P API,4,coursework,9.09,3,2.52
+1P API,4,not_classified,17.78,20,3.22
+1P API,5,work,87.88,26,88.77
+1P API,5,personal,11.75,6,5.88
+1P API,5,coursework,9.14,5,2.13
+1P API,5,not_classified,18.99,21,3.23

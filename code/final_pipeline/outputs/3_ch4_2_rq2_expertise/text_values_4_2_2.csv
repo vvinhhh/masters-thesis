@@ -1,0 +1,3 @@
+release,gate,process_ridge_time_weighted,ridge_weighted_by_process_dispersion,ridge_weighted_by_subprocess_dispersion,ridge_weighted_by_exposure,process_concentration
+5,gate ON,14.284,14.115,14.334,14.125,1.212
+5,gate OFF,14.284,14.175,14.385,14.374,1.466

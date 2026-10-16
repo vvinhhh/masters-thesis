@@ -1,0 +1,29 @@
+========================================================================
+CROSS-MODEL AGREEMENT REPORT
+========================================================================
+
+Task-occupation rows: 212 total, 212 with all 3 models present.
+
+Krippendorff's alpha (ordinal level, 3 raters, all rows incl. partial missingness): 0.681
+Krippendorff's alpha (ordinal, in-scope tasks only, n=91): 0.689
+  -> Single omnibus agreement statistic across all 3 models at once.
+  -> Ordinal level of measurement: emphasizes whether models rank tasks the
+     same way (directional agreement), rather than requiring exact-value match.
+
+Top 15 highest-disagreement tasks (by coefficient of variation across models):
+task_id                             occupation_title                                                                                                                                                                                    task_statement  claude_hours  gpt_hours  gemini_hours  cross_model_cv
+  21525                     Accountants and Auditors                                                                                      Review taxpayer accounts, and conduct audits on-site, by correspondence, or by summoning taxpayer to office.           1.0        0.5           4.0            1.03
+   2509 Bookkeeping, Accounting, and Auditing Clerks                                                                                                                            Match order forms with invoices, and record the necessary information.           2.5        1.2           6.0            0.77
+   8846                             Chief Executives                                                                                     Administer programs for selection of sites, construction of buildings, or provision of equipment or supplies.           0.5        0.7           2.0            0.76
+   8843                             Chief Executives                                                                  Interpret and explain policies, rules, regulations, or laws to organizations, government or corporate officials, or individuals.           1.0        0.8           3.0            0.76
+  21522                     Accountants and Auditors Evaluate taxpayer finances to determine tax liability, using knowledge of interest and discount rates, annuities, valuation of stocks and bonds, and amortization valuation of depletable assets.           1.5        0.5           3.0            0.75
+   2505 Bookkeeping, Accounting, and Auditing Clerks                                                                                                                      Monitor status of loans and accounts to ensure that payments are up to date.           1.5        1.0           4.0            0.74
+  21319                           Financial Managers                                                                                                                                                Oversee the flow of cash or financial instruments.           3.5        1.0           6.0            0.71
+   8851                             Chief Executives                                                                            Conduct or direct investigations or hearings to resolve complaints or violations of laws, or testify at such hearings.           0.5        0.2           1.0            0.71
+   8847                             Chief Executives                                                                          Direct or coordinate activities of businesses involved with buying or selling investment products or financial services.           1.0        0.4           2.0            0.71
+   8838                             Chief Executives                                                                                                     Direct non-merchandising departments, such as advertising, purchasing, credit, or accounting.           1.0        1.0           3.0            0.69
+   8852                             Chief Executives                                                                                  Represent organizations or promote their objectives at official functions, or delegate representatives to do so.           1.0        1.0           3.0            0.69
+   8830                             Chief Executives                                                                                                            Review reports submitted by staff members to recommend approval or to suggest changes.           2.0        1.5           5.0            0.67
+   8833                             Chief Executives                                                                                                 Preside over, or serve on, boards of directors, management committees, or other governing boards.           2.0        1.5           5.0            0.67
+   8842                             Chief Executives                                                                                                                                                       Nominate citizens to boards or commissions.           0.3        0.1           0.5            0.67
+   2501 Bookkeeping, Accounting, and Auditing Clerks                                                                                                                            Calculate and prepare checks for utilities, taxes, and other payments.           2.5        1.2           5.0            0.67

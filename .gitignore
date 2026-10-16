@@ -1,0 +1,28 @@
+# This folder also holds thesis drafts, PDFs and literature that are NOT part of the repository.
+# Allow-list: ignore everything at the top level, then re-include only what is published.
+/*
+!/.gitignore
+!/README.md
+!/requirements.txt
+!/code/
+!/task categorization/
+
+# Local working folder, not published
+/code/old/
+
+# Raw AEI files: too large for GitHub; fetch with code/data_preparation/download_aei.py
+/code/data_preparation/inputs/aei/release_*/*
+!/code/data_preparation/inputs/aei/release_*/.gitkeep
+
+# Embedding cache (53 MB, rebuilt automatically by data_preparation/02 on first run)
+/code/data_preparation/outputs/02_ridge_expertise/embeddings/
+
+# Python / Jupyter clutter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.part
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*

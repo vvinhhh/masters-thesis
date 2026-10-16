@@ -1,0 +1,17 @@
+Variable,Platform,N,Mean,SD,Min,Median,Max,Skewness
+"Task time fraction (hours/week, raw)",—,91,3.503,2.127,0.583,3.233,11.0,1.414
+Ridge task expertise (years),—,91,14.235,1.455,9.298,14.466,17.109,-0.595
+Task value (USD/hour),—,91,49.441,29.48,24.55,45.56,129.63,1.362
+Theoretical exposure (beta),—,91,0.659,0.246,0.0,0.5,1.0,0.502
+Work usage (conversations),Pooled,38,275.895,616.842,15.0,94.0,3616.0,4.626
+Automation factor (alpha),Pooled,38,0.766,0.163,0.5,0.81,1.0,-0.566
+"Task observed exposure (r~), gate = ON",Pooled,91,0.167,0.341,0.0,0.0,1.0,1.584
+Task success (%),Claude.ai,31,68.417,12.065,50.0,69.343,88.889,0.068
+Task success (%),1P API,20,54.292,12.909,24.0,53.86,79.31,-0.223
+Human-only time (hours),Claude.ai,38,3.571,1.612,0.822,3.331,7.676,0.563
+Human-only time (hours),1P API,28,1.57,1.285,0.258,1.118,5.322,1.451
+AI autonomy (1 to 5),Claude.ai,38,3.231,0.286,2.353,3.247,3.662,-1.025
+AI autonomy (1 to 5),1P API,28,2.718,0.262,2.057,2.765,3.205,-0.801
+ln(input context-length index),1P API,28,-0.125,0.548,-1.641,-0.032,0.831,-0.866
+ln(output context-length index),1P API,28,-0.146,0.542,-1.338,-0.022,1.36,-0.056
+ln(cost index),1P API,28,-0.167,0.605,-1.629,-0.132,0.997,-0.299

@@ -1,0 +1,25 @@
+variant,,(1) Expertise only,(2) + Autonomy,(3) + Human-only time,(4) + Subprocess FE
+Clustered SE (task),Ridge expertise (years),-0.217,0.428,2.082,-0.256
+Clustered SE (task),,(1.257),(1.624),(1.234),(1.799)
+Clustered SE (task),AI autonomy (1 to 5),,-6.943,10.530,6.289
+Clustered SE (task),,,(7.907),(7.661),(7.870)
+Clustered SE (task),Human-only time (hours),,,-5.741***,-5.815***
+Clustered SE (task),,,,(1.217),(1.191)
+Clustered SE (task),Constant,71.293***,84.087***,23.876,70.105**
+Clustered SE (task),,(17.723),(21.413),(16.957),(28.442)
+Clustered SE (task),Subprocess fixed effects,No,No,No,Yes
+Clustered SE (task),Observations,58,58,58,58
+Clustered SE (task),R²,0.001,0.022,0.349,0.451
+Clustered SE (task) + release indicator,Ridge expertise (years),-0.211,0.484,2.129*,-0.212
+Clustered SE (task) + release indicator,,(1.268),(1.645),(1.249),(1.795)
+Clustered SE (task) + release indicator,AI autonomy (1 to 5),,-7.412,10.106,5.681
+Clustered SE (task) + release indicator,,,(7.902),(7.685),(7.928)
+Clustered SE (task) + release indicator,Human-only time (hours),,,-5.736***,-5.835***
+Clustered SE (task) + release indicator,,,,(1.242),(1.207)
+Clustered SE (task) + release indicator,Release 5 indicator,0.578,1.312,1.140,1.533
+Clustered SE (task) + release indicator,,(2.112),(2.203),(2.151),(2.138)
+Clustered SE (task) + release indicator,Constant,70.902***,84.064***,23.911,70.623**
+Clustered SE (task) + release indicator,,(17.857),(21.355),(16.695),(28.239)
+Clustered SE (task) + release indicator,Subprocess fixed effects,No,No,No,Yes
+Clustered SE (task) + release indicator,Observations,58,58,58,58
+Clustered SE (task) + release indicator,R²,0.001,0.025,0.351,0.454

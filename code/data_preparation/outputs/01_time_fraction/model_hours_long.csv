@@ -1,0 +1,637 @@
+onet_soc_code,occupation_title,task_id,model,hours
+11-1011.00,Chief Executives,8823,claude,5.5
+11-1011.00,Chief Executives,8824,claude,7.0
+11-1011.00,Chief Executives,8827,claude,2.5
+11-1011.00,Chief Executives,8826,claude,6.0
+11-1011.00,Chief Executives,8834,claude,2.5
+11-1011.00,Chief Executives,8836,claude,1.5
+11-1011.00,Chief Executives,8825,claude,3.5
+11-1011.00,Chief Executives,8828,claude,2.5
+11-1011.00,Chief Executives,8832,claude,2.0
+11-1011.00,Chief Executives,8831,claude,1.5
+11-1011.00,Chief Executives,8843,claude,1.0
+11-1011.00,Chief Executives,8830,claude,2.0
+11-1011.00,Chief Executives,8829,claude,2.0
+11-1011.00,Chief Executives,8835,claude,1.5
+11-1011.00,Chief Executives,8839,claude,1.5
+11-1011.00,Chief Executives,8840,claude,2.0
+11-1011.00,Chief Executives,8837,claude,1.5
+11-1011.00,Chief Executives,8833,claude,2.0
+11-1011.00,Chief Executives,8849,claude,0.5
+11-1011.00,Chief Executives,8850,claude,1.0
+11-1011.00,Chief Executives,8842,claude,0.3
+11-1011.00,Chief Executives,8851,claude,0.5
+11-1011.00,Chief Executives,8847,claude,1.0
+11-1011.00,Chief Executives,8853,claude,0.3
+11-1011.00,Chief Executives,8844,claude,0.8
+11-1011.00,Chief Executives,20461,claude,0.8
+11-1011.00,Chief Executives,8838,claude,1.0
+11-1011.00,Chief Executives,8845,claude,0.5
+11-1011.00,Chief Executives,8848,claude,1.0
+11-1011.00,Chief Executives,8846,claude,0.5
+11-1011.00,Chief Executives,8852,claude,1.0
+11-1011.00,Chief Executives,8823,gpt,2.5
+11-1011.00,Chief Executives,8824,gpt,8.0
+11-1011.00,Chief Executives,8827,gpt,2.0
+11-1011.00,Chief Executives,8826,gpt,6.0
+11-1011.00,Chief Executives,8834,gpt,2.0
+11-1011.00,Chief Executives,8836,gpt,1.5
+11-1011.00,Chief Executives,8825,gpt,2.0
+11-1011.00,Chief Executives,8828,gpt,1.5
+11-1011.00,Chief Executives,8832,gpt,2.5
+11-1011.00,Chief Executives,8831,gpt,1.5
+11-1011.00,Chief Executives,8843,gpt,0.8
+11-1011.00,Chief Executives,8830,gpt,1.5
+11-1011.00,Chief Executives,8829,gpt,1.8
+11-1011.00,Chief Executives,8835,gpt,2.0
+11-1011.00,Chief Executives,8839,gpt,1.2
+11-1011.00,Chief Executives,8840,gpt,2.0
+11-1011.00,Chief Executives,8837,gpt,0.8
+11-1011.00,Chief Executives,8833,gpt,1.5
+11-1011.00,Chief Executives,8849,gpt,0.3
+11-1011.00,Chief Executives,8850,gpt,0.5
+11-1011.00,Chief Executives,8842,gpt,0.1
+11-1011.00,Chief Executives,8851,gpt,0.2
+11-1011.00,Chief Executives,8847,gpt,0.4
+11-1011.00,Chief Executives,8853,gpt,0.2
+11-1011.00,Chief Executives,8844,gpt,0.5
+11-1011.00,Chief Executives,20461,gpt,0.8
+11-1011.00,Chief Executives,8838,gpt,1.0
+11-1011.00,Chief Executives,8845,gpt,0.4
+11-1011.00,Chief Executives,8848,gpt,1.0
+11-1011.00,Chief Executives,8846,gpt,0.7
+11-1011.00,Chief Executives,8852,gpt,1.0
+11-1011.00,Chief Executives,8823,gemini,6.0
+11-1011.00,Chief Executives,8824,gemini,12.0
+11-1011.00,Chief Executives,8827,gemini,3.0
+11-1011.00,Chief Executives,8826,gemini,10.0
+11-1011.00,Chief Executives,8834,gemini,5.0
+11-1011.00,Chief Executives,8836,gemini,4.0
+11-1011.00,Chief Executives,8825,gemini,6.0
+11-1011.00,Chief Executives,8828,gemini,5.0
+11-1011.00,Chief Executives,8832,gemini,4.0
+11-1011.00,Chief Executives,8831,gemini,3.0
+11-1011.00,Chief Executives,8843,gemini,3.0
+11-1011.00,Chief Executives,8830,gemini,5.0
+11-1011.00,Chief Executives,8829,gemini,4.0
+11-1011.00,Chief Executives,8835,gemini,3.0
+11-1011.00,Chief Executives,8839,gemini,3.0
+11-1011.00,Chief Executives,8840,gemini,5.0
+11-1011.00,Chief Executives,8837,gemini,2.0
+11-1011.00,Chief Executives,8833,gemini,5.0
+11-1011.00,Chief Executives,8849,gemini,1.0
+11-1011.00,Chief Executives,8850,gemini,2.0
+11-1011.00,Chief Executives,8842,gemini,0.5
+11-1011.00,Chief Executives,8851,gemini,1.0
+11-1011.00,Chief Executives,8847,gemini,2.0
+11-1011.00,Chief Executives,8853,gemini,0.5
+11-1011.00,Chief Executives,8844,gemini,1.0
+11-1011.00,Chief Executives,20461,gemini,1.0
+11-1011.00,Chief Executives,8838,gemini,3.0
+11-1011.00,Chief Executives,8845,gemini,1.0
+11-1011.00,Chief Executives,8848,gemini,2.0
+11-1011.00,Chief Executives,8846,gemini,2.0
+11-1011.00,Chief Executives,8852,gemini,3.0
+11-3031.00,Financial Managers,21311,claude,4.5
+11-3031.00,Financial Managers,21319,claude,3.5
+11-3031.00,Financial Managers,21312,claude,6.0
+11-3031.00,Financial Managers,21313,claude,1.5
+11-3031.00,Financial Managers,21315,claude,4.5
+11-3031.00,Financial Managers,21316,claude,1.5
+11-3031.00,Financial Managers,21327,claude,2.0
+11-3031.00,Financial Managers,21322,claude,2.5
+11-3031.00,Financial Managers,21321,claude,6.5
+11-3031.00,Financial Managers,21318,claude,2.5
+11-3031.00,Financial Managers,21320,claude,4.0
+11-3031.00,Financial Managers,21317,claude,2.0
+11-3031.00,Financial Managers,21323,claude,4.0
+11-3031.00,Financial Managers,21325,claude,2.0
+11-3031.00,Financial Managers,21314,claude,4.5
+11-3031.00,Financial Managers,21326,claude,1.5
+11-3031.00,Financial Managers,21329,claude,2.5
+11-3031.00,Financial Managers,21311,gpt,1.5
+11-3031.00,Financial Managers,21319,gpt,1.0
+11-3031.00,Financial Managers,21312,gpt,6.5
+11-3031.00,Financial Managers,21313,gpt,1.0
+11-3031.00,Financial Managers,21315,gpt,3.5
+11-3031.00,Financial Managers,21316,gpt,1.0
+11-3031.00,Financial Managers,21327,gpt,1.5
+11-3031.00,Financial Managers,21322,gpt,1.0
+11-3031.00,Financial Managers,21321,gpt,4.5
+11-3031.00,Financial Managers,21318,gpt,2.5
+11-3031.00,Financial Managers,21320,gpt,2.5
+11-3031.00,Financial Managers,21317,gpt,1.0
+11-3031.00,Financial Managers,21323,gpt,3.0
+11-3031.00,Financial Managers,21325,gpt,1.5
+11-3031.00,Financial Managers,21314,gpt,3.5
+11-3031.00,Financial Managers,21326,gpt,1.5
+11-3031.00,Financial Managers,21329,gpt,2.0
+11-3031.00,Financial Managers,21311,gemini,5.0
+11-3031.00,Financial Managers,21319,gemini,6.0
+11-3031.00,Financial Managers,21312,gemini,8.0
+11-3031.00,Financial Managers,21313,gemini,2.0
+11-3031.00,Financial Managers,21315,gemini,7.0
+11-3031.00,Financial Managers,21316,gemini,2.0
+11-3031.00,Financial Managers,21327,gemini,3.0
+11-3031.00,Financial Managers,21322,gemini,3.0
+11-3031.00,Financial Managers,21321,gemini,8.0
+11-3031.00,Financial Managers,21318,gemini,4.0
+11-3031.00,Financial Managers,21320,gemini,6.0
+11-3031.00,Financial Managers,21317,gemini,3.0
+11-3031.00,Financial Managers,21323,gemini,6.0
+11-3031.00,Financial Managers,21325,gemini,4.0
+11-3031.00,Financial Managers,21314,gemini,5.0
+11-3031.00,Financial Managers,21326,gemini,2.0
+11-3031.00,Financial Managers,21329,gemini,3.0
+11-3031.01,Treasurers and Controllers,8870,claude,3.5
+11-3031.01,Treasurers and Controllers,8858,claude,2.0
+11-3031.01,Treasurers and Controllers,8864,claude,2.5
+11-3031.01,Treasurers and Controllers,20168,claude,5.0
+11-3031.01,Treasurers and Controllers,8861,claude,2.5
+11-3031.01,Treasurers and Controllers,8866,claude,3.0
+11-3031.01,Treasurers and Controllers,8865,claude,5.5
+11-3031.01,Treasurers and Controllers,8872,claude,1.0
+11-3031.01,Treasurers and Controllers,8856,claude,5.0
+11-3031.01,Treasurers and Controllers,8863,claude,2.5
+11-3031.01,Treasurers and Controllers,8867,claude,4.0
+11-3031.01,Treasurers and Controllers,8860,claude,2.5
+11-3031.01,Treasurers and Controllers,8868,claude,3.5
+11-3031.01,Treasurers and Controllers,8859,claude,2.0
+11-3031.01,Treasurers and Controllers,8869,claude,2.5
+11-3031.01,Treasurers and Controllers,8871,claude,1.5
+11-3031.01,Treasurers and Controllers,8855,claude,2.0
+11-3031.01,Treasurers and Controllers,8857,claude,3.0
+11-3031.01,Treasurers and Controllers,8874,claude,2.0
+11-3031.01,Treasurers and Controllers,8873,claude,1.0
+11-3031.01,Treasurers and Controllers,20169,claude,1.5
+11-3031.01,Treasurers and Controllers,8875,claude,1.5
+11-3031.01,Treasurers and Controllers,8870,gpt,1.5
+11-3031.01,Treasurers and Controllers,8858,gpt,1.0
+11-3031.01,Treasurers and Controllers,8864,gpt,2.0
+11-3031.01,Treasurers and Controllers,20168,gpt,3.0
+11-3031.01,Treasurers and Controllers,8861,gpt,1.5
+11-3031.01,Treasurers and Controllers,8866,gpt,2.5
+11-3031.01,Treasurers and Controllers,8865,gpt,4.0
+11-3031.01,Treasurers and Controllers,8872,gpt,0.5
+11-3031.01,Treasurers and Controllers,8856,gpt,4.0
+11-3031.01,Treasurers and Controllers,8863,gpt,2.0
+11-3031.01,Treasurers and Controllers,8867,gpt,3.0
+11-3031.01,Treasurers and Controllers,8860,gpt,1.5
+11-3031.01,Treasurers and Controllers,8868,gpt,2.5
+11-3031.01,Treasurers and Controllers,8859,gpt,1.0
+11-3031.01,Treasurers and Controllers,8869,gpt,1.5
+11-3031.01,Treasurers and Controllers,8871,gpt,1.0
+11-3031.01,Treasurers and Controllers,8855,gpt,1.5
+11-3031.01,Treasurers and Controllers,8857,gpt,2.0
+11-3031.01,Treasurers and Controllers,8874,gpt,1.0
+11-3031.01,Treasurers and Controllers,8873,gpt,0.5
+11-3031.01,Treasurers and Controllers,20169,gpt,1.5
+11-3031.01,Treasurers and Controllers,8875,gpt,0.5
+11-3031.01,Treasurers and Controllers,8870,gemini,5.0
+11-3031.01,Treasurers and Controllers,8858,gemini,2.0
+11-3031.01,Treasurers and Controllers,8864,gemini,3.0
+11-3031.01,Treasurers and Controllers,20168,gemini,5.0
+11-3031.01,Treasurers and Controllers,8861,gemini,2.0
+11-3031.01,Treasurers and Controllers,8866,gemini,4.0
+11-3031.01,Treasurers and Controllers,8865,gemini,6.0
+11-3031.01,Treasurers and Controllers,8872,gemini,0.5
+11-3031.01,Treasurers and Controllers,8856,gemini,8.0
+11-3031.01,Treasurers and Controllers,8863,gemini,3.0
+11-3031.01,Treasurers and Controllers,8867,gemini,6.0
+11-3031.01,Treasurers and Controllers,8860,gemini,3.0
+11-3031.01,Treasurers and Controllers,8868,gemini,4.0
+11-3031.01,Treasurers and Controllers,8859,gemini,3.0
+11-3031.01,Treasurers and Controllers,8869,gemini,3.0
+11-3031.01,Treasurers and Controllers,8871,gemini,1.0
+11-3031.01,Treasurers and Controllers,8855,gemini,2.0
+11-3031.01,Treasurers and Controllers,8857,gemini,5.0
+11-3031.01,Treasurers and Controllers,8874,gemini,2.0
+11-3031.01,Treasurers and Controllers,8873,gemini,0.5
+11-3031.01,Treasurers and Controllers,20169,gemini,2.0
+11-3031.01,Treasurers and Controllers,8875,gemini,1.0
+13-1051.00,Cost Estimators,80,claude,10.0
+13-1051.00,Cost Estimators,83,claude,6.0
+13-1051.00,Cost Estimators,20846,claude,3.0
+13-1051.00,Cost Estimators,81,claude,5.0
+13-1051.00,Cost Estimators,82,claude,6.0
+13-1051.00,Cost Estimators,90,claude,3.0
+13-1051.00,Cost Estimators,85,claude,4.0
+13-1051.00,Cost Estimators,84,claude,5.0
+13-1051.00,Cost Estimators,89,claude,2.0
+13-1051.00,Cost Estimators,86,claude,3.0
+13-1051.00,Cost Estimators,87,claude,4.0
+13-1051.00,Cost Estimators,91,claude,2.0
+13-1051.00,Cost Estimators,92,claude,2.0
+13-1051.00,Cost Estimators,88,claude,1.0
+13-1051.00,Cost Estimators,80,gpt,8.0
+13-1051.00,Cost Estimators,83,gpt,4.0
+13-1051.00,Cost Estimators,20846,gpt,3.0
+13-1051.00,Cost Estimators,81,gpt,4.0
+13-1051.00,Cost Estimators,82,gpt,5.0
+13-1051.00,Cost Estimators,90,gpt,2.0
+13-1051.00,Cost Estimators,85,gpt,4.0
+13-1051.00,Cost Estimators,84,gpt,3.0
+13-1051.00,Cost Estimators,89,gpt,2.0
+13-1051.00,Cost Estimators,86,gpt,1.0
+13-1051.00,Cost Estimators,87,gpt,3.0
+13-1051.00,Cost Estimators,91,gpt,1.0
+13-1051.00,Cost Estimators,92,gpt,1.0
+13-1051.00,Cost Estimators,88,gpt,1.0
+13-1051.00,Cost Estimators,80,gemini,12.0
+13-1051.00,Cost Estimators,83,gemini,6.0
+13-1051.00,Cost Estimators,20846,gemini,4.0
+13-1051.00,Cost Estimators,81,gemini,5.0
+13-1051.00,Cost Estimators,82,gemini,7.0
+13-1051.00,Cost Estimators,90,gemini,3.0
+13-1051.00,Cost Estimators,85,gemini,4.0
+13-1051.00,Cost Estimators,84,gemini,3.0
+13-1051.00,Cost Estimators,89,gemini,2.0
+13-1051.00,Cost Estimators,86,gemini,3.0
+13-1051.00,Cost Estimators,87,gemini,4.0
+13-1051.00,Cost Estimators,91,gemini,2.0
+13-1051.00,Cost Estimators,92,gemini,2.0
+13-1051.00,Cost Estimators,88,gemini,1.0
+13-2011.00,Accountants and Auditors,21505,claude,3.5
+13-2011.00,Accountants and Auditors,21506,claude,2.0
+13-2011.00,Accountants and Auditors,21507,claude,3.5
+13-2011.00,Accountants and Auditors,21508,claude,2.5
+13-2011.00,Accountants and Auditors,21509,claude,1.5
+13-2011.00,Accountants and Auditors,21510,claude,2.0
+13-2011.00,Accountants and Auditors,21511,claude,1.5
+13-2011.00,Accountants and Auditors,21512,claude,1.0
+13-2011.00,Accountants and Auditors,21513,claude,2.0
+13-2011.00,Accountants and Auditors,21514,claude,5.0
+13-2011.00,Accountants and Auditors,21515,claude,2.0
+13-2011.00,Accountants and Auditors,21516,claude,2.5
+13-2011.00,Accountants and Auditors,21517,claude,1.0
+13-2011.00,Accountants and Auditors,21518,claude,0.75
+13-2011.00,Accountants and Auditors,21519,claude,2.5
+13-2011.00,Accountants and Auditors,21520,claude,1.5
+13-2011.00,Accountants and Auditors,21521,claude,1.5
+13-2011.00,Accountants and Auditors,21522,claude,1.5
+13-2011.00,Accountants and Auditors,21523,claude,1.0
+13-2011.00,Accountants and Auditors,21524,claude,1.0
+13-2011.00,Accountants and Auditors,21525,claude,1.0
+13-2011.00,Accountants and Auditors,21526,claude,3.0
+13-2011.00,Accountants and Auditors,21527,claude,1.5
+13-2011.00,Accountants and Auditors,21529,claude,1.0
+13-2011.00,Accountants and Auditors,21530,claude,0.75
+13-2011.00,Accountants and Auditors,21531,claude,2.0
+13-2011.00,Accountants and Auditors,21532,claude,3.0
+13-2011.00,Accountants and Auditors,21533,claude,1.5
+13-2011.00,Accountants and Auditors,21534,claude,1.5
+13-2011.00,Accountants and Auditors,21505,gpt,3.0
+13-2011.00,Accountants and Auditors,21506,gpt,2.0
+13-2011.00,Accountants and Auditors,21507,gpt,3.0
+13-2011.00,Accountants and Auditors,21508,gpt,2.5
+13-2011.00,Accountants and Auditors,21509,gpt,1.0
+13-2011.00,Accountants and Auditors,21510,gpt,3.0
+13-2011.00,Accountants and Auditors,21511,gpt,1.5
+13-2011.00,Accountants and Auditors,21512,gpt,1.0
+13-2011.00,Accountants and Auditors,21513,gpt,2.0
+13-2011.00,Accountants and Auditors,21514,gpt,4.0
+13-2011.00,Accountants and Auditors,21515,gpt,2.0
+13-2011.00,Accountants and Auditors,21516,gpt,3.0
+13-2011.00,Accountants and Auditors,21517,gpt,0.5
+13-2011.00,Accountants and Auditors,21518,gpt,0.5
+13-2011.00,Accountants and Auditors,21519,gpt,3.0
+13-2011.00,Accountants and Auditors,21520,gpt,2.0
+13-2011.00,Accountants and Auditors,21521,gpt,1.5
+13-2011.00,Accountants and Auditors,21522,gpt,0.5
+13-2011.00,Accountants and Auditors,21523,gpt,0.5
+13-2011.00,Accountants and Auditors,21524,gpt,0.5
+13-2011.00,Accountants and Auditors,21525,gpt,0.5
+13-2011.00,Accountants and Auditors,21526,gpt,1.5
+13-2011.00,Accountants and Auditors,21527,gpt,1.0
+13-2011.00,Accountants and Auditors,21529,gpt,0.5
+13-2011.00,Accountants and Auditors,21530,gpt,0.25
+13-2011.00,Accountants and Auditors,21531,gpt,2.0
+13-2011.00,Accountants and Auditors,21532,gpt,3.0
+13-2011.00,Accountants and Auditors,21533,gpt,1.0
+13-2011.00,Accountants and Auditors,21534,gpt,2.0
+13-2011.00,Accountants and Auditors,21505,gemini,5.0
+13-2011.00,Accountants and Auditors,21506,gemini,3.0
+13-2011.00,Accountants and Auditors,21507,gemini,6.0
+13-2011.00,Accountants and Auditors,21508,gemini,4.0
+13-2011.00,Accountants and Auditors,21509,gemini,2.0
+13-2011.00,Accountants and Auditors,21510,gemini,3.0
+13-2011.00,Accountants and Auditors,21511,gemini,3.0
+13-2011.00,Accountants and Auditors,21512,gemini,2.0
+13-2011.00,Accountants and Auditors,21513,gemini,4.0
+13-2011.00,Accountants and Auditors,21514,gemini,8.0
+13-2011.00,Accountants and Auditors,21515,gemini,2.0
+13-2011.00,Accountants and Auditors,21516,gemini,5.0
+13-2011.00,Accountants and Auditors,21517,gemini,1.0
+13-2011.00,Accountants and Auditors,21518,gemini,1.0
+13-2011.00,Accountants and Auditors,21519,gemini,4.0
+13-2011.00,Accountants and Auditors,21520,gemini,2.0
+13-2011.00,Accountants and Auditors,21521,gemini,2.0
+13-2011.00,Accountants and Auditors,21522,gemini,3.0
+13-2011.00,Accountants and Auditors,21523,gemini,1.0
+13-2011.00,Accountants and Auditors,21524,gemini,2.0
+13-2011.00,Accountants and Auditors,21525,gemini,4.0
+13-2011.00,Accountants and Auditors,21526,gemini,5.0
+13-2011.00,Accountants and Auditors,21527,gemini,3.0
+13-2011.00,Accountants and Auditors,21529,gemini,1.0
+13-2011.00,Accountants and Auditors,21530,gemini,1.0
+13-2011.00,Accountants and Auditors,21531,gemini,3.0
+13-2011.00,Accountants and Auditors,21532,gemini,5.0
+13-2011.00,Accountants and Auditors,21533,gemini,2.0
+13-2011.00,Accountants and Auditors,21534,gemini,3.0
+13-2031.00,Budget Analysts,3394,claude,6.0
+13-2031.00,Budget Analysts,3398,claude,5.0
+13-2031.00,Budget Analysts,3401,claude,4.0
+13-2031.00,Budget Analysts,3405,claude,5.0
+13-2031.00,Budget Analysts,3402,claude,5.0
+13-2031.00,Budget Analysts,3399,claude,4.0
+13-2031.00,Budget Analysts,3396,claude,4.0
+13-2031.00,Budget Analysts,3395,claude,3.0
+13-2031.00,Budget Analysts,3404,claude,2.0
+13-2031.00,Budget Analysts,3403,claude,4.0
+13-2031.00,Budget Analysts,3397,claude,3.0
+13-2031.00,Budget Analysts,3400,claude,2.0
+13-2031.00,Budget Analysts,3406,claude,1.0
+13-2031.00,Budget Analysts,3394,gpt,4.0
+13-2031.00,Budget Analysts,3398,gpt,3.5
+13-2031.00,Budget Analysts,3401,gpt,2.5
+13-2031.00,Budget Analysts,3405,gpt,2.5
+13-2031.00,Budget Analysts,3402,gpt,3.0
+13-2031.00,Budget Analysts,3399,gpt,2.0
+13-2031.00,Budget Analysts,3396,gpt,2.5
+13-2031.00,Budget Analysts,3395,gpt,1.5
+13-2031.00,Budget Analysts,3404,gpt,1.0
+13-2031.00,Budget Analysts,3403,gpt,2.5
+13-2031.00,Budget Analysts,3397,gpt,1.0
+13-2031.00,Budget Analysts,3400,gpt,1.0
+13-2031.00,Budget Analysts,3406,gpt,0.5
+13-2031.00,Budget Analysts,3394,gemini,8.0
+13-2031.00,Budget Analysts,3398,gemini,6.0
+13-2031.00,Budget Analysts,3401,gemini,7.0
+13-2031.00,Budget Analysts,3405,gemini,5.0
+13-2031.00,Budget Analysts,3402,gemini,6.0
+13-2031.00,Budget Analysts,3399,gemini,4.0
+13-2031.00,Budget Analysts,3396,gemini,4.0
+13-2031.00,Budget Analysts,3395,gemini,5.0
+13-2031.00,Budget Analysts,3404,gemini,3.0
+13-2031.00,Budget Analysts,3403,gemini,4.0
+13-2031.00,Budget Analysts,3397,gemini,2.0
+13-2031.00,Budget Analysts,3400,gemini,3.0
+13-2031.00,Budget Analysts,3406,gemini,1.0
+13-2082.00,Tax Preparers,7358,claude,10.0
+13-2082.00,Tax Preparers,7360,claude,6.0
+13-2082.00,Tax Preparers,7363,claude,5.0
+13-2082.00,Tax Preparers,7361,claude,6.0
+13-2082.00,Tax Preparers,7359,claude,12.0
+13-2082.00,Tax Preparers,7362,claude,5.0
+13-2082.00,Tax Preparers,7366,claude,3.0
+13-2082.00,Tax Preparers,20364,claude,2.0
+13-2082.00,Tax Preparers,20363,claude,4.0
+13-2082.00,Tax Preparers,7364,claude,2.0
+13-2082.00,Tax Preparers,7365,claude,1.0
+13-2082.00,Tax Preparers,21165,claude,1.0
+13-2082.00,Tax Preparers,7358,gpt,8.5
+13-2082.00,Tax Preparers,7360,gpt,5.5
+13-2082.00,Tax Preparers,7363,gpt,3.5
+13-2082.00,Tax Preparers,7361,gpt,4.5
+13-2082.00,Tax Preparers,7359,gpt,9.0
+13-2082.00,Tax Preparers,7362,gpt,3.5
+13-2082.00,Tax Preparers,7366,gpt,2.5
+13-2082.00,Tax Preparers,20364,gpt,2.0
+13-2082.00,Tax Preparers,20363,gpt,2.5
+13-2082.00,Tax Preparers,7364,gpt,1.5
+13-2082.00,Tax Preparers,7365,gpt,0.5
+13-2082.00,Tax Preparers,21165,gpt,1.0
+13-2082.00,Tax Preparers,7358,gemini,10.0
+13-2082.00,Tax Preparers,7360,gemini,8.0
+13-2082.00,Tax Preparers,7363,gemini,5.0
+13-2082.00,Tax Preparers,7361,gemini,6.0
+13-2082.00,Tax Preparers,7359,gemini,12.0
+13-2082.00,Tax Preparers,7362,gemini,8.0
+13-2082.00,Tax Preparers,7366,gemini,3.0
+13-2082.00,Tax Preparers,20364,gemini,3.0
+13-2082.00,Tax Preparers,20363,gemini,4.0
+13-2082.00,Tax Preparers,7364,gemini,4.0
+13-2082.00,Tax Preparers,7365,gemini,1.0
+13-2082.00,Tax Preparers,21165,gemini,2.0
+15-1242.00,Database Administrators,1299,claude,5.5
+15-1242.00,Database Administrators,1301,claude,4.0
+15-1242.00,Database Administrators,21649,claude,2.5
+15-1242.00,Database Administrators,1305,claude,2.0
+15-1242.00,Database Administrators,21651,claude,3.5
+15-1242.00,Database Administrators,1300,claude,4.5
+15-1242.00,Database Administrators,1303,claude,2.0
+15-1242.00,Database Administrators,21650,claude,3.0
+15-1242.00,Database Administrators,1302,claude,3.0
+15-1242.00,Database Administrators,1298,claude,2.0
+15-1242.00,Database Administrators,1313,claude,2.5
+15-1242.00,Database Administrators,1306,claude,2.5
+15-1242.00,Database Administrators,1311,claude,3.0
+15-1242.00,Database Administrators,21648,claude,2.0
+15-1242.00,Database Administrators,1309,claude,1.5
+15-1242.00,Database Administrators,1312,claude,1.5
+15-1242.00,Database Administrators,1314,claude,1.5
+15-1242.00,Database Administrators,1315,claude,1.0
+15-1242.00,Database Administrators,1299,gpt,4.5
+15-1242.00,Database Administrators,1301,gpt,3.5
+15-1242.00,Database Administrators,21649,gpt,2.5
+15-1242.00,Database Administrators,1305,gpt,2.5
+15-1242.00,Database Administrators,21651,gpt,2.0
+15-1242.00,Database Administrators,1300,gpt,2.5
+15-1242.00,Database Administrators,1303,gpt,1.5
+15-1242.00,Database Administrators,21650,gpt,1.5
+15-1242.00,Database Administrators,1302,gpt,2.0
+15-1242.00,Database Administrators,1298,gpt,2.0
+15-1242.00,Database Administrators,1313,gpt,3.5
+15-1242.00,Database Administrators,1306,gpt,3.0
+15-1242.00,Database Administrators,1311,gpt,2.5
+15-1242.00,Database Administrators,21648,gpt,1.5
+15-1242.00,Database Administrators,1309,gpt,1.5
+15-1242.00,Database Administrators,1312,gpt,1.0
+15-1242.00,Database Administrators,1314,gpt,1.5
+15-1242.00,Database Administrators,1315,gpt,1.0
+15-1242.00,Database Administrators,1299,gemini,6.0
+15-1242.00,Database Administrators,1301,gemini,5.5
+15-1242.00,Database Administrators,21649,gemini,4.0
+15-1242.00,Database Administrators,1305,gemini,3.0
+15-1242.00,Database Administrators,21651,gemini,5.0
+15-1242.00,Database Administrators,1300,gemini,6.0
+15-1242.00,Database Administrators,1303,gemini,4.5
+15-1242.00,Database Administrators,21650,gemini,4.0
+15-1242.00,Database Administrators,1302,gemini,3.5
+15-1242.00,Database Administrators,1298,gemini,2.5
+15-1242.00,Database Administrators,1313,gemini,5.0
+15-1242.00,Database Administrators,1306,gemini,4.0
+15-1242.00,Database Administrators,1311,gemini,3.5
+15-1242.00,Database Administrators,21648,gemini,3.0
+15-1242.00,Database Administrators,1309,gemini,2.0
+15-1242.00,Database Administrators,1312,gemini,2.0
+15-1242.00,Database Administrators,1314,gemini,2.0
+15-1242.00,Database Administrators,1315,gemini,1.5
+43-3021.00,Billing and Posting Clerks,23238,claude,6.5
+43-3021.00,Billing and Posting Clerks,23243,claude,4.0
+43-3021.00,Billing and Posting Clerks,23240,claude,6.0
+43-3021.00,Billing and Posting Clerks,23242,claude,3.0
+43-3021.00,Billing and Posting Clerks,23237,claude,0.5
+43-3021.00,Billing and Posting Clerks,23239,claude,1.5
+43-3021.00,Billing and Posting Clerks,23246,claude,3.5
+43-3021.00,Billing and Posting Clerks,23241,claude,4.5
+43-3021.00,Billing and Posting Clerks,23244,claude,3.5
+43-3021.00,Billing and Posting Clerks,23247,claude,1.5
+43-3021.00,Billing and Posting Clerks,23248,claude,0.5
+43-3021.00,Billing and Posting Clerks,23249,claude,0.5
+43-3021.00,Billing and Posting Clerks,23245,claude,4.0
+43-3021.00,Billing and Posting Clerks,23256,claude,2.0
+43-3021.00,Billing and Posting Clerks,23250,claude,1.0
+43-3021.00,Billing and Posting Clerks,23255,claude,1.5
+43-3021.00,Billing and Posting Clerks,23251,claude,2.0
+43-3021.00,Billing and Posting Clerks,23253,claude,0.5
+43-3021.00,Billing and Posting Clerks,23254,claude,1.0
+43-3021.00,Billing and Posting Clerks,23259,claude,1.0
+43-3021.00,Billing and Posting Clerks,23258,claude,2.5
+43-3021.00,Billing and Posting Clerks,23257,claude,0.5
+43-3021.00,Billing and Posting Clerks,23260,claude,1.0
+43-3021.00,Billing and Posting Clerks,23262,claude,2.0
+43-3021.00,Billing and Posting Clerks,23263,claude,1.5
+43-3021.00,Billing and Posting Clerks,23264,claude,3.0
+43-3021.00,Billing and Posting Clerks,23265,claude,3.0
+43-3021.00,Billing and Posting Clerks,23266,claude,1.5
+43-3021.00,Billing and Posting Clerks,23238,gpt,4.5
+43-3021.00,Billing and Posting Clerks,23243,gpt,3.5
+43-3021.00,Billing and Posting Clerks,23240,gpt,5.0
+43-3021.00,Billing and Posting Clerks,23242,gpt,2.5
+43-3021.00,Billing and Posting Clerks,23237,gpt,0.5
+43-3021.00,Billing and Posting Clerks,23239,gpt,0.75
+43-3021.00,Billing and Posting Clerks,23246,gpt,2.5
+43-3021.00,Billing and Posting Clerks,23241,gpt,4.0
+43-3021.00,Billing and Posting Clerks,23244,gpt,2.5
+43-3021.00,Billing and Posting Clerks,23247,gpt,1.5
+43-3021.00,Billing and Posting Clerks,23248,gpt,0.5
+43-3021.00,Billing and Posting Clerks,23249,gpt,0.75
+43-3021.00,Billing and Posting Clerks,23245,gpt,3.0
+43-3021.00,Billing and Posting Clerks,23256,gpt,0.75
+43-3021.00,Billing and Posting Clerks,23250,gpt,0.5
+43-3021.00,Billing and Posting Clerks,23255,gpt,1.5
+43-3021.00,Billing and Posting Clerks,23251,gpt,1.0
+43-3021.00,Billing and Posting Clerks,23253,gpt,0.25
+43-3021.00,Billing and Posting Clerks,23254,gpt,0.5
+43-3021.00,Billing and Posting Clerks,23259,gpt,1.5
+43-3021.00,Billing and Posting Clerks,23258,gpt,3.0
+43-3021.00,Billing and Posting Clerks,23257,gpt,0.25
+43-3021.00,Billing and Posting Clerks,23260,gpt,0.25
+43-3021.00,Billing and Posting Clerks,23262,gpt,1.5
+43-3021.00,Billing and Posting Clerks,23263,gpt,1.0
+43-3021.00,Billing and Posting Clerks,23264,gpt,4.0
+43-3021.00,Billing and Posting Clerks,23265,gpt,2.0
+43-3021.00,Billing and Posting Clerks,23266,gpt,0.75
+43-3021.00,Billing and Posting Clerks,23238,gemini,6.0
+43-3021.00,Billing and Posting Clerks,23243,gemini,4.0
+43-3021.00,Billing and Posting Clerks,23240,gemini,8.0
+43-3021.00,Billing and Posting Clerks,23242,gemini,4.0
+43-3021.00,Billing and Posting Clerks,23237,gemini,0.5
+43-3021.00,Billing and Posting Clerks,23239,gemini,0.5
+43-3021.00,Billing and Posting Clerks,23246,gemini,3.0
+43-3021.00,Billing and Posting Clerks,23241,gemini,5.0
+43-3021.00,Billing and Posting Clerks,23244,gemini,4.0
+43-3021.00,Billing and Posting Clerks,23247,gemini,1.0
+43-3021.00,Billing and Posting Clerks,23248,gemini,0.5
+43-3021.00,Billing and Posting Clerks,23249,gemini,0.5
+43-3021.00,Billing and Posting Clerks,23245,gemini,6.0
+43-3021.00,Billing and Posting Clerks,23256,gemini,2.0
+43-3021.00,Billing and Posting Clerks,23250,gemini,0.5
+43-3021.00,Billing and Posting Clerks,23255,gemini,2.0
+43-3021.00,Billing and Posting Clerks,23251,gemini,2.0
+43-3021.00,Billing and Posting Clerks,23253,gemini,0.5
+43-3021.00,Billing and Posting Clerks,23254,gemini,0.5
+43-3021.00,Billing and Posting Clerks,23259,gemini,1.0
+43-3021.00,Billing and Posting Clerks,23258,gemini,3.0
+43-3021.00,Billing and Posting Clerks,23257,gemini,0.5
+43-3021.00,Billing and Posting Clerks,23260,gemini,0.5
+43-3021.00,Billing and Posting Clerks,23262,gemini,2.0
+43-3021.00,Billing and Posting Clerks,23263,gemini,1.0
+43-3021.00,Billing and Posting Clerks,23264,gemini,5.0
+43-3021.00,Billing and Posting Clerks,23265,gemini,4.0
+43-3021.00,Billing and Posting Clerks,23266,gemini,1.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2487,claude,8.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2486,claude,5.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2488,claude,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2495,claude,2.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2500,claude,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2493,claude,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2497,claude,3.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2496,claude,3.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2498,claude,3.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2494,claude,3.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2490,claude,5.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2489,claude,6.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2509,claude,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",18561,claude,3.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2499,claude,2.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2501,claude,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2505,claude,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2503,claude,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2507,claude,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2502,claude,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2506,claude,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2510,claude,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2491,claude,3.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2508,claude,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2514,claude,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2504,claude,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2492,claude,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2511,claude,1.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2487,gpt,10.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2486,gpt,7.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2488,gpt,2.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2495,gpt,1.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2500,gpt,0.8
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2493,gpt,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2497,gpt,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2496,gpt,3.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2498,gpt,1.8
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2494,gpt,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2490,gpt,7.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2489,gpt,6.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2509,gpt,1.2
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",18561,gpt,3.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2499,gpt,0.8
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2501,gpt,1.2
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2505,gpt,1.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2503,gpt,1.8
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2507,gpt,1.2
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2502,gpt,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2506,gpt,2.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2510,gpt,0.8
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2491,gpt,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2508,gpt,1.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2514,gpt,1.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2504,gpt,0.8
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2492,gpt,2.5
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2511,gpt,1.2
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2487,gemini,12.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2486,gemini,8.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2488,gemini,4.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2495,gemini,2.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2500,gemini,3.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2493,gemini,4.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2497,gemini,5.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2496,gemini,6.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2498,gemini,5.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2494,gemini,4.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2490,gemini,8.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2489,gemini,10.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2509,gemini,6.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",18561,gemini,5.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2499,gemini,3.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2501,gemini,5.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2505,gemini,4.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2503,gemini,4.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2507,gemini,2.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2502,gemini,2.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2506,gemini,3.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2510,gemini,2.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2491,gemini,8.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2508,gemini,3.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2514,gemini,4.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2504,gemini,2.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2492,gemini,6.0
+43-3031.00,"Bookkeeping, Accounting, and Auditing Clerks",2511,gemini,3.0

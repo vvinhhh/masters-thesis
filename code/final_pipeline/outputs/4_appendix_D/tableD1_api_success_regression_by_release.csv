@@ -1,0 +1,25 @@
+release,,(1) Input index,(2) + Output index,(3) + Autonomy,(4) + Subprocess FE
+Release 4,ln(input context-length index),-10.532**,-11.869**,-8.171,-11.559*
+Release 4,,(4.681),(4.742),(5.157),(5.720)
+Release 4,ln(output context-length index),,9.857,6.159,5.728
+Release 4,,,(8.054),(8.105),(15.610)
+Release 4,AI autonomy (1 to 5),,,-19.274,-22.868
+Release 4,,,,(12.599),(17.464)
+Release 4,Constant,58.222***,59.091***,112.840***,122.434**
+Release 4,,(2.823),(2.872),(35.243),(46.416)
+Release 4,Subprocess fixed effects,No,No,No,Yes
+Release 4,F-test of fixed effects,,,,"F(5, 10) = 1.24 [p = 0.359]"
+Release 4,Observations,19,19,19,19
+Release 4,R²,0.229,0.295,0.390,0.624
+Release 5,ln(input context-length index),-19.855***,-21.439***,-20.250***,-24.744**
+Release 5,,(4.177),(5.372),(6.460),(8.240)
+Release 5,ln(output context-length index),,2.621,3.608,11.950
+Release 5,,,(5.397),(6.204),(8.144)
+Release 5,AI autonomy (1 to 5),,,-4.131,-7.404
+Release 5,,,,(11.681),(16.372)
+Release 5,Constant,53.102***,53.567***,64.989*,83.220
+Release 5,,(1.991),(2.249),(32.381),(47.106)
+Release 5,Subprocess fixed effects,No,No,No,Yes
+Release 5,F-test of fixed effects,,,,"F(5, 11) = 1.02 [p = 0.453]"
+Release 5,Observations,20,20,20,20
+Release 5,R²,0.557,0.563,0.566,0.703

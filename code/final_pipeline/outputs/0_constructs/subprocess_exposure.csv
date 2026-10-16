@@ -1,0 +1,25 @@
+subprocess,release,gate_on,n_tasks,n_tasks_with_usage,n_tasks_gate_passed,theoretical_capability_share,R_o,conversation_volume
+Analysis & Business Insight,4,False,12,6,6,1.0,0.46517741705034044,3993.0
+Close & Consolidation,4,False,5,2,2,1.0,0.44250717818634466,329.0
+Master Data Management,4,False,8,5,5,1.0,0.5053450424450094,1036.0
+Planning & Budgeting,4,False,22,6,6,1.0,0.20065928860661203,676.0
+Record,4,False,31,11,11,0.967741935483871,0.39745416639083087,1943.0
+Report,4,False,13,2,2,1.0,0.15466338166732527,415.0
+Analysis & Business Insight,4,True,12,6,2,1.0,0.1828169887493843,3993.0
+Close & Consolidation,4,True,5,2,2,1.0,0.44250717818634466,329.0
+Master Data Management,4,True,8,5,3,1.0,0.2549326867694958,1036.0
+Planning & Budgeting,4,True,22,6,3,1.0,0.08605717683736147,676.0
+Record,4,True,31,11,5,0.967741935483871,0.2084859778554027,1943.0
+Report,4,True,13,2,1,1.0,0.06059934577373106,415.0
+Analysis & Business Insight,5,False,12,7,7,1.0,0.5134661849119166,4823.0
+Close & Consolidation,5,False,5,2,2,1.0,0.402588745112594,327.0
+Master Data Management,5,False,8,6,6,1.0,0.5565540935384202,1246.0
+Planning & Budgeting,5,False,22,6,6,1.0,0.16326050257761665,825.0
+Record,5,False,31,13,13,0.967741935483871,0.4449997633615635,2681.0
+Report,5,False,13,4,4,1.0,0.2124272436108591,582.0
+Analysis & Business Insight,5,True,12,7,2,1.0,0.18103602258315193,4823.0
+Close & Consolidation,5,True,5,2,2,1.0,0.402588745112594,327.0
+Master Data Management,5,True,8,6,3,1.0,0.2527731527167645,1246.0
+Planning & Budgeting,5,True,22,6,3,1.0,0.08699116285218628,825.0
+Record,5,True,31,13,7,0.967741935483871,0.3192389209954511,2681.0
+Report,5,True,13,4,1,1.0,0.05841111964191245,582.0

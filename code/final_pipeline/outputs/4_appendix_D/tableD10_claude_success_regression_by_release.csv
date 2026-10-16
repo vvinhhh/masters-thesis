@@ -1,0 +1,25 @@
+release,,(1) Expertise only,(2) + Autonomy,(3) + Human-only time,(4) + Subprocess FE
+Release 4,Ridge expertise (years),-0.876,-0.787,2.147,-0.844
+Release 4,,(1.762),(2.110),(1.892),(2.370)
+Release 4,AI autonomy (1 to 5),,-0.864,19.820*,12.769
+Release 4,,,(10.739),(10.394),(12.217)
+Release 4,Human-only time (hours),,,-6.789***,-5.828**
+Release 4,,,,(1.856),(2.360)
+Release 4,Constant,80.604***,82.025**,-3.421,57.098
+Release 4,,(25.834),(31.730),(34.781),(52.883)
+Release 4,Subprocess fixed effects,No,No,No,Yes
+Release 4,F-test of fixed effects,,,,"F(5, 18) = 1.08 [p = 0.404]"
+Release 4,Observations,27,27,27,27
+Release 4,R²,0.010,0.010,0.374,0.519
+Release 5,Ridge expertise (years),0.377,1.409,2.239,0.496
+Release 5,,(1.506),(1.631),(1.390),(1.870)
+Release 5,AI autonomy (1 to 5),,-12.024,3.134,-0.075
+Release 5,,,(8.094),(8.023),(8.140)
+Release 5,Human-only time (hours),,,-5.062***,-6.109***
+Release 5,,,,(1.422),(1.616)
+Release 5,Constant,62.952***,86.883***,43.639,81.337**
+Release 5,,(21.955),(26.876),(25.640),(34.707)
+Release 5,Subprocess fixed effects,No,No,No,Yes
+Release 5,F-test of fixed effects,,,,"F(5, 22) = 1.39 [p = 0.268]"
+Release 5,Observations,31,31,31,31
+Release 5,R²,0.002,0.075,0.370,0.521

@@ -1,0 +1,22 @@
+diagnostic,key,value
+O*NET tasks after merge with BLS,corpus_tasks,18217
+Occupations after merge,corpus_occupations,893
+Training pool tasks,training_pool_size,18005
+Training pool occupations,training_pool_occupations,883
+Prediction set (register tasks),r2r_tasks_held_out,212
+Held-out occupations,r2r_occupations_held_out,10
+GroupKFold folds,cv_folds,5
+Alpha grid,alpha_grid,"25 log-spaced values, 0.01 to 10000"
+Selected alpha,selected_alpha,1.0
+Grouped CV R2 (mean),groupkfold_r2_mean,0.569830171778207
+Grouped CV R2 (SD),groupkfold_r2_sd,0.03417449298505086
+Grouped CV RMSE (years),groupkfold_rmse_mean,1.8520837366932503
+Grouped CV MAE (years),groupkfold_mae_mean,1.4447044477622832
+Grouped CV Spearman rho,groupkfold_spearman_mean,0.7510882301628014
+Random KFold R2,random_kfold_r2_mean,0.6079256827801796
+Leakage gap (random - grouped R2),leakage_gap_r2,0.038095511001972504
+Occupation-aggregation R2 (in-sample),occupation_aggregation_sanity_r2,0.7529103973151241
+Held-out domain R2 (10 random occupations),random_domain_holdout_r2,0.5299016216442191
+Held-out domain Spearman,random_domain_holdout_spearman,0.6885567026395828
+"Bootstrap prediction SD, mean (years)",bootstrap_mean_prediction_sd,0.27540712158851716
+"Bootstrap prediction SD, max (years)",bootstrap_max_prediction_sd,0.41787181790847083

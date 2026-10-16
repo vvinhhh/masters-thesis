@@ -1,0 +1,13 @@
+(i) Record holds 31 of 91 in-scope tasks (34.1% of the task count) but 34.0% of process time.
+    Master Data Management: 8.8% of tasks vs 5.4% of time
+    Record: 34.1% of tasks vs 34.0% of time
+    Close & Consolidation: 5.5% of tasks vs 4.2% of time
+    Report: 14.3% of tasks vs 17.5% of time
+    Analysis & Business Insight: 13.2% of tasks vs 15.0% of time
+    Planning & Budgeting: 24.2% of tasks vs 24.0% of time
+(ii) Release 4: 27 tasks carry a success reading on Claude.ai and 19 on the 1P API (8 fewer on the API).
+(ii) Release 5: 31 tasks carry a success reading on Claude.ai and 20 on the 1P API (11 fewer on the API).
+(iii) Release 4 Claude.ai: usage share skewness 4.60, mean 2.86% vs median 0.76%; conversation-count skewness 4.60, max/median 48.2x
+(iii) Release 4 1P API: usage share skewness 2.17, mean 3.85% vs median 1.09%; conversation-count skewness 2.17, max/median 20.3x
+(iii) Release 5 Claude.ai: usage share skewness 5.10, mean 2.63% vs median 0.61%; conversation-count skewness 5.10, max/median 61.5x
+(iii) Release 5 1P API: usage share skewness 2.95, mean 3.57% vs median 1.30%; conversation-count skewness 2.95, max/median 21.1x

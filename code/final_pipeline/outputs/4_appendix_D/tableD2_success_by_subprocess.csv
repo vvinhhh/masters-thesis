@@ -1,0 +1,15 @@
+subprocess,platform,n_R4,R4,n_R5,R5,delta_pp
+Entire Process,Claude.ai,27,67.82,31,68.42,0.6
+Entire Process,1P API,19,58.81,20,54.29,-4.52
+Master Data Management,Claude.ai,3,74.38,4,69.55,-4.83
+Master Data Management,1P API,4,53.45,5,59.79,6.34
+Record,Claude.ai,8,69.65,10,67.12,-2.53
+Record,1P API,6,60.92,8,50.95,-9.98
+Close & Consolidation,Claude.ai,2,57.14,2,64.79,7.65
+Close & Consolidation,1P API,2,69.98,2,52.27,-17.71
+Report,Claude.ai,2,59.16,2,58.39,-0.77
+Report,1P API,2,64.93,1,46.64,-18.29
+Analysis & Business Insight,Claude.ai,5,58.58,5,68.73,10.15
+Analysis & Business Insight,1P API,3,52.32,3,60.47,8.15
+Planning & Budgeting,Claude.ai,7,75.05,8,72.69,-2.35
+Planning & Budgeting,1P API,2,55.66,1,46.72,-8.94

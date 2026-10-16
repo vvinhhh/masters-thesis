@@ -1,0 +1,15 @@
+release,subprocess,n_in_scope,n_touched,task_coverage_pct,effective_exposure_pct,gap_pp,weight_component_pp,success_component_pp,residual_pp,touched_low_weight_n,touched_low_success_n,touched_low_weight_and_low_success_n,mean_success_touched_pct,time_share_touched_pct
+4,Entire Process,91,39,42.86,23.39,-19.47,1.23,-20.7,0.0,18,13,5,51.7,45.82
+4,Master Data Management,8,5,62.5,21.91,-40.59,-8.27,-32.32,0.0,3,2,1,48.29,61.4
+4,Record,31,15,48.39,25.7,-22.69,4.53,-27.22,0.0,7,7,4,43.74,56.0
+4,Close & Consolidation,5,2,40.0,31.47,-8.53,6.04,-14.58,0.0,0,0,0,63.56,50.25
+4,Report,13,2,15.38,10.5,-4.89,0.95,-5.84,0.0,1,0,0,62.05,16.74
+4,Analysis & Business Insight,12,7,58.33,30.42,-27.92,1.61,-29.52,0.0,3,3,0,49.39,63.41
+4,Planning & Budgeting,22,8,36.36,24.05,-12.32,0.33,-12.64,0.0,4,1,0,65.23,37.35
+5,Entire Process,91,41,45.05,25.71,-19.34,1.63,-20.97,0.0,18,9,4,53.46,49.23
+5,Master Data Management,8,6,75.0,37.66,-37.34,-1.74,-35.6,0.0,4,1,1,52.54,69.79
+5,Record,31,13,41.94,26.5,-15.43,5.01,-20.44,0.0,5,4,2,51.26,54.55
+5,Close & Consolidation,5,2,40.0,29.21,-10.79,5.79,-16.59,0.0,0,0,0,58.53,50.25
+5,Report,13,4,30.77,9.3,-21.47,0.82,-22.29,0.0,3,2,2,27.57,29.89
+5,Analysis & Business Insight,12,7,58.33,35.91,-22.42,2.16,-24.58,0.0,3,1,0,57.86,63.41
+5,Planning & Budgeting,22,9,40.91,26.91,-14.0,0.63,-14.63,0.0,4,1,0,64.23,42.14

@@ -1,0 +1,25 @@
+variant,,(1) Input index,(2) + Output index,(3) + Autonomy,(4) + Subprocess FE
+Clustered SE (task),ln(input context-length index),-14.198***,-15.471***,-12.261***,-16.406***
+Clustered SE (task),,(3.216),(2.949),(3.251),(2.678)
+Clustered SE (task),ln(output context-length index),,3.964,5.601,9.367
+Clustered SE (task),,,(3.336),(4.259),(6.081)
+Clustered SE (task),AI autonomy (1 to 5),,,-13.767,-16.939
+Clustered SE (task),,,,(8.859),(10.056)
+Clustered SE (task),Constant,55.670***,56.215***,94.451***,107.734***
+Clustered SE (task),,(2.147),(2.242),(23.816),(29.646)
+Clustered SE (task),Subprocess fixed effects,No,No,No,Yes
+Clustered SE (task),Observations,39,39,39,39
+Clustered SE (task),R²,0.342,0.355,0.410,0.557
+Clustered SE (task) + release indicator,ln(input context-length index),-14.213***,-15.218***,-11.365***,-15.431***
+Clustered SE (task) + release indicator,,(2.977),(2.893),(3.357),(2.672)
+Clustered SE (task) + release indicator,ln(output context-length index),,3.135,4.781,8.670
+Clustered SE (task) + release indicator,,,(3.356),(4.307),(6.535)
+Clustered SE (task) + release indicator,AI autonomy (1 to 5),,,-16.169,-18.924
+Clustered SE (task) + release indicator,,,,(9.549),(11.117)
+Clustered SE (task) + release indicator,Release 5 indicator,-4.575*,-4.209,-5.609*,-4.406
+Clustered SE (task) + release indicator,,(2.463),(2.558),(2.711),(2.776)
+Clustered SE (task) + release indicator,Constant,58.015***,58.259***,103.845***,115.327***
+Clustered SE (task) + release indicator,,(2.870),(2.892),(26.404),(33.695)
+Clustered SE (task) + release indicator,Subprocess fixed effects,No,No,No,Yes
+Clustered SE (task) + release indicator,Observations,39,39,39,39
+Clustered SE (task) + release indicator,R²,0.372,0.381,0.453,0.583

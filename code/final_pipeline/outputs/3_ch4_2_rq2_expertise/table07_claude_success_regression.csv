@@ -1,0 +1,13 @@
+,(1) Expertise only,(2) + Autonomy,(3) + Human-only time,(4) + Subprocess FE
+Ridge expertise (years),-0.217,0.428,2.082*,-0.256
+,(1.132),(1.273),(1.095),(1.409)
+AI autonomy (1 to 5),,-6.943,10.530*,6.289
+,,(6.316),(6.188),(6.453)
+Human-only time (hours),,,-5.741***,-5.815***
+,,,(1.102),(1.263)
+Constant,71.293***,84.087***,23.876,70.105**
+,(16.540),(20.200),(20.252),(28.091)
+Subprocess fixed effects,No,No,No,Yes
+F-test of fixed effects,,,,"F(5, 49) = 1.81 [p = 0.128]"
+Observations,58,58,58,58
+R²,0.001,0.022,0.349,0.451

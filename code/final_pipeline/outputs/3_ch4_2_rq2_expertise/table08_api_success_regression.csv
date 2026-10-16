@@ -1,0 +1,13 @@
+,(1) Input index,(2) + Output index,(3) + Autonomy,(4) + Subprocess FE
+ln(input context-length index),-14.198***,-15.471***,-12.261***,-16.406***
+,(3.239),(3.563),(3.890),(3.993)
+ln(output context-length index),,3.964,5.601,9.367*
+,,(4.552),(4.509),(5.497)
+AI autonomy (1 to 5),,,-13.767*,-16.939**
+,,,(7.648),(8.043)
+Constant,55.670***,56.215***,94.451***,107.734***
+,(1.755),(1.869),(21.319),(23.387)
+Subprocess fixed effects,No,No,No,Yes
+F-test of fixed effects,,,,"F(5, 30) = 1.98 [p = 0.110]"
+Observations,39,39,39,39
+R²,0.342,0.355,0.410,0.557

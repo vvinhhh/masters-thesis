@@ -1,0 +1,3 @@
+scope,rows,mean_hours_claude,median_hours_claude,mean_total_hours_per_occupation_claude,mean_hours_gpt,median_hours_gpt,mean_total_hours_per_occupation_gpt,mean_hours_gemini,median_hours_gemini,mean_total_hours_per_occupation_gemini,share_gemini_strictly_highest_pct,share_gemini_highest_incl_ties_pct,krippendorff_alpha_ordinal_all_rows
+all 212 task-occupation rows,212,2.73,2.0,57.87,2.13,1.5,45.23,3.76,3.0,79.65,71.7,91.51,0.681
+91 in-scope tasks,91,3.38,3.0,30.8,2.66,2.5,24.24,4.46,4.0,40.6,69.23,89.01,0.681

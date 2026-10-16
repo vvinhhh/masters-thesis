@@ -1,0 +1,57 @@
+release,platform,subprocess,share_pct
+1,claude_ai,Master Data Management,26.66666666666669
+1,claude_ai,Record,12.793148880105365
+1,claude_ai,Close & Consolidation,1.5415019762845847
+1,claude_ai,Report,3.056653491436098
+1,claude_ai,Analysis & Business Insight,34.41370223978922
+1,claude_ai,Planning & Budgeting,21.528326745718044
+1,claude_ai,Entire Process,100.0
+2,claude_ai,Master Data Management,27.531815737587433
+2,claude_ai,Record,17.153611758379594
+2,claude_ai,Close & Consolidation,1.2726295034952504
+2,claude_ai,Report,4.929198781143561
+2,claude_ai,Analysis & Business Insight,28.64312600824519
+2,claude_ai,Planning & Budgeting,20.469618211148926
+2,claude_ai,Entire Process,100.0
+3,claude_ai,Master Data Management,8.246674727932271
+3,claude_ai,Record,14.752116082224884
+3,claude_ai,Close & Consolidation,1.8137847642079596
+3,claude_ai,Report,4.570737605804096
+3,claude_ai,Analysis & Business Insight,56.29987908101584
+3,claude_ai,Planning & Budgeting,14.316807738814957
+3,1p_api,Master Data Management,10.112607639655554
+3,1p_api,Record,23.4488849635681
+3,1p_api,Close & Consolidation,1.655994700816941
+3,1p_api,Report,2.91455067343783
+3,1p_api,Analysis & Business Insight,57.783175093839766
+3,1p_api,Planning & Budgeting,4.084786928681806
+3,claude_ai,Entire Process,47.20751731160026
+3,1p_api,Entire Process,52.792482688399744
+4,claude_ai,Master Data Management,8.400697416389269
+4,claude_ai,Record,19.321604057695335
+4,claude_ai,Close & Consolidation,2.5994610873355377
+4,claude_ai,Report,4.739261372642252
+4,claude_ai,Analysis & Business Insight,51.941670629259875
+4,claude_ai,Planning & Budgeting,12.997305436677733
+4,1p_api,Master Data Management,12.989644304367399
+4,1p_api,Record,31.832507879333654
+4,1p_api,Close & Consolidation,4.750112561909056
+4,1p_api,Report,6.100855470508776
+4,1p_api,Analysis & Business Insight,39.84691580369207
+4,1p_api,Planning & Budgeting,4.4799639801890505
+4,claude_ai,Entire Process,57.98381918916943
+4,1p_api,Entire Process,42.01618081083057
+5,claude_ai,Master Data Management,9.016824395373282
+5,claude_ai,Record,20.50473186119872
+5,claude_ai,Close & Consolidation,2.891692954784439
+5,claude_ai,Report,5.796529968454248
+5,claude_ai,Analysis & Business Insight,48.84332281808626
+5,claude_ai,Planning & Budgeting,12.946898002103044
+5,1p_api,Master Data Management,12.726548496315493
+5,1p_api,Record,34.69428400716991
+5,1p_api,Close & Consolidation,3.166699860585545
+5,1p_api,Report,5.437163911571388
+5,1p_api,Analysis & Business Insight,41.08743278231425
+5,1p_api,Planning & Budgeting,2.8878709420434014
+5,claude_ai,Entire Process,60.24229946947503
+5,1p_api,Entire Process,39.757700530524964
