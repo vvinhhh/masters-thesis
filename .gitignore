@@ -6,6 +6,15 @@
 !/requirements.txt
 !/code/
 !/task categorization/
+!/docs/
+!/scrollytelling/
+
+# Interactive story: keep the sources; data.json, artifact.html, index.html and the PNG are build outputs
+# (docs/ holds the published copy). guide_notes.md is a local reading note.
+/scrollytelling/*
+!/scrollytelling/build_data.py
+!/scrollytelling/template.html
+!/scrollytelling/social-card.html
 
 # Local working folder, not published
 /code/old/

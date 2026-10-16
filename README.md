@@ -7,14 +7,20 @@ The thesis measures *observed* generative-AI exposure in the Record-to-Report (R
 - at what level of expertise it sits;
 - how effective that exposure is once task success is taken into account.
 
+**Interactive version:** [vvinhhh.github.io/masters-thesis](https://vvinhhh.github.io/masters-thesis/), a scrolling data story with an explorer of all 91 tasks.
+
 ## Repository layout
 
 ```
 task categorization/        Phase 1  O*NET tasks -> R2R subprocesses (multi-LLM + human classification, consensus round)
 code/data_preparation/      Phase 2  time fractions, ridge task expertise, task master, AEI panel   (thesis Section 3.1)
 code/final_pipeline/        Phase 3  constructs, descriptives, RQ1, RQ2, Appendix D                (Sections 3.2-4.2)
+scrollytelling/             The interactive story: build_data.py reads final_pipeline's outputs into template.html
+docs/                       The built story, published with GitHub Pages
 requirements.txt
 ```
+
+To rebuild the story after re-running the pipeline: `python scrollytelling/build_data.py`.
 
 Each phase's output is the next phase's input. Every table is written as a CSV, and every figure as a PNG next to the CSV of the data it plots. [`code/README.md`](code/README.md) says where each kind of output lives. The READMEs in [`code/data_preparation/`](code/data_preparation/README.md) and [`code/final_pipeline/`](code/final_pipeline/README.md) document every notebook, input and output.
 

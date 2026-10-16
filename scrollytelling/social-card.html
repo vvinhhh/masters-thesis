@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Social card</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@1,400&family=Inter:wght@400;700&display=swap">
+<style>body { margin: 0; background: #111; } canvas { display: block; max-width: 100%; }</style>
+</head>
+<body>
+<!-- Draws the 1200x627 link-preview image (LinkedIn, X, Slack) from data.json.
+     Open via the local server, then read window.cardPNG (a data: URL) or right-click the canvas to save it. -->
+<canvas id="c" width="1200" height="627"></canvas>
+<script>
+(async () => {
+  await Promise.all(['700 80px Inter', '400 24px Inter', 'italic 400 34px Besley'].map(f => document.fonts.load(f)));
+  const D = await (await fetch('data.json')).json();
+  const c = document.getElementById('c'), x = c.getContext('2d');
+  const BG = '#1d1d1d', INK = '#f3f3f3', MUTED = '#9c9c9c', RULE = '#353535', GREEN = '#9bd84c', BLUE = '#46a5ff';
+
+  x.fillStyle = BG; x.fillRect(0, 0, 1200, 627);
+  // ledger lines and the green double margin rule
+  x.fillStyle = '#242424';
+  for (let y = 31; y < 627; y += 32) x.fillRect(0, y, 1200, 1);
+  x.fillStyle = GREEN; x.fillRect(40, 0, 3, 627); x.fillRect(48, 0, 3, 627);
+
+  // text column
+  const L = 92;
+  x.fillStyle = INK; x.font = '700 82px Inter'; x.letterSpacing = '-3px';
+  x.fillText('“You will be', L, 168); x.fillText('replaced!”', L, 256);
+  x.letterSpacing = '0px';
+  x.fillStyle = '#c9c9c9'; x.font = 'italic 400 33px Besley';
+  x.fillText('for the 1000th time. What real AI', L, 318); x.fillText('usage says about accounting work.', L, 360);
+
+  const P = D.process, pct = v => Math.round(v * 100) + '%';
+  x.font = '700 30px Inter'; x.fillStyle = BLUE; x.fillText((P.cap_time * 100).toFixed(1) + '%', L, 446);
+  x.font = '400 24px Inter'; x.fillStyle = INK; x.fillText('of the work AI could do', L + 108, 446);
+  x.font = '700 30px Inter'; x.fillStyle = GREEN; x.fillText(pct(P.eff_time), L, 492);
+  x.font = '400 24px Inter'; x.fillStyle = INK; x.fillText('it successfully does today', L + 108, 492);
+
+  x.font = '400 20px Inter'; x.fillStyle = MUTED;
+  x.fillText('A data story · Vinh Le · Master’s thesis in accounting, 2026', L, 572);
+
+  // radar: capability (blue) vs effective exposure (green)
+  const cx = 925, cy = 300, R = 165, S = D.subprocesses;
+  const TINY = ['Master Data', 'Record', 'Close', 'Report', 'Analysis', 'Planning'];
+  const pt = (i, v) => { const a = -Math.PI / 2 + i * Math.PI / 3; return [cx + Math.cos(a) * R * v, cy + Math.sin(a) * R * v]; };
+  const poly = vals => { x.beginPath(); vals.forEach((v, i) => { const [px, py] = pt(i, v); i ? x.lineTo(px, py) : x.moveTo(px, py); }); x.closePath(); };
+  x.strokeStyle = RULE; x.lineWidth = 1;
+  [0.25, 0.5, 0.75, 1].forEach(v => { poly(S.map(() => v)); x.stroke(); });
+  S.forEach((s, i) => { const [px, py] = pt(i, 1); x.beginPath(); x.moveTo(cx, cy); x.lineTo(px, py); x.stroke(); });
+  const shape = (vals, col) => {
+    poly(vals); x.globalAlpha = 0.16; x.fillStyle = col; x.fill(); x.globalAlpha = 1;
+    x.strokeStyle = col; x.lineWidth = 3; x.lineJoin = 'round'; x.stroke();
+    vals.forEach((v, i) => { const [px, py] = pt(i, v); x.beginPath(); x.arc(px, py, 6, 0, 2 * Math.PI); x.fillStyle = col; x.fill(); x.lineWidth = 3; x.strokeStyle = BG; x.stroke(); });
+  };
+  shape(S.map(s => s.cap), BLUE);
+  shape(S.map(s => s.eff), GREEN);
+  x.font = '700 17px Inter'; x.fillStyle = INK;
+  S.forEach((s, i) => {
+    const [px, py] = pt(i, 1.13), dx = px - cx;
+    x.textAlign = Math.abs(dx) < 5 ? 'center' : dx > 0 ? 'left' : 'right';
+    x.fillText(TINY[i], px, py + (i === 0 ? -4 : i === 3 ? 16 : 6));
+  });
+  x.textAlign = 'left';
+  window.cardPNG = c.toDataURL('image/png');
+  document.title = 'Social card ready';
+})();
+</script>
+</body>
+</html>

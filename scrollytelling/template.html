@@ -1,0 +1,1200 @@
+<title>You Will Be Replaced!</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="How much of accounting's Record-to-Report process AI actually does, measured task by task from real Claude usage.">
+<meta name="author" content="Vinh Le">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“You will be replaced!” for the 1000th time">
+<meta property="og:description" content="AI could do 99.8% of accounting's Record-to-Report work. In real Claude usage, it successfully does about a quarter. An interactive data story from a master's thesis.">
+<meta property="og:url" content="https://vvinhhh.github.io/masters-thesis/">
+<meta property="og:image" content="https://vvinhhh.github.io/masters-thesis/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="Radar chart: AI could do 99.8% of Record-to-Report work but successfully does 26%.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;0,700;1,400;1,500&family=Inter:wght@400;600;700&display=swap">
+<style>
+/* Layout: ledger paper in the Aalto palette. Story = filled text boxes scrolling past one sticky chart
+   (side by side on desktop, chart pinned on top on phones). Explore = tile grid + detail panel.
+   Method = one long reference page. Type: Inter (headings, body, data), Besley italic (subtitles).
+   Colour jobs: --accent (School of Business green) marks the interface and, as --eff, success.
+   --cap could be done · --use handed to AI · --eff done successfully (green).
+   Explorer ramps run light → Aalto brand colour → deep shade in both themes, so the most is always the darkest. */
+:root {
+  --paper: #ffffff; --paper-2: #f2f2f2; --card: #f2f2f2; --ink: #000000; --ink-2: #3b3b3b; --muted: #6b6b6b;
+  --rule: #e2e2e2; --rule-2: #b7b7b7; --ledger: #ececec;
+  --accent: #9bd84c; --on-accent: #000000;
+  --cap: #1f7fe0; --use: #e5484d; --eff: #9bd84c;
+  --seq-lo: #e3f1ff; --seq-mid: #46a5ff; --seq-hi: #0a3f80; --red-lo: #ffe4e3; --red-mid: #fd6360; --red-hi: #8f1519;
+  --yel-lo: #fffbe0; --yel-mid: #f7e159; --yel-hi: #7a6200;
+  --tip-shadow: 0 6px 24px rgba(0, 0, 0, .14);
+  --f-sans: "Inter", Arial, system-ui, sans-serif;
+  --f-serif: "Besley", Georgia, "Times New Roman", serif;
+  --hdr: 54px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1d1d1d; --paper-2: #282828; --card: #2a2a2a; --ink: #f3f3f3; --ink-2: #c9c9c9; --muted: #9c9c9c;
+    --rule: #353535; --rule-2: #575757; --ledger: #262626;
+    --cap: #46a5ff; --use: #fd6360; --eff: #9bd84c;
+    --tip-shadow: 0 6px 24px rgba(0, 0, 0, .5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1d1d1d; --paper-2: #282828; --card: #2a2a2a; --ink: #f3f3f3; --ink-2: #c9c9c9; --muted: #9c9c9c;
+  --rule: #353535; --rule-2: #575757; --ledger: #262626;
+  --cap: #46a5ff; --use: #fd6360; --eff: #9bd84c;
+  --tip-shadow: 0 6px 24px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 400 17px/1.6 var(--f-sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--ink); }
+:focus-visible { outline: 2px solid var(--cap); outline-offset: 2px; }
+h1, h2, h3, h4 { font-family: var(--f-sans); font-weight: 700; letter-spacing: -0.025em; text-wrap: balance; margin: 0; line-height: 1.1; }
+p { margin: 0; }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.sub { font: italic 400 18px/1.4 var(--f-serif); color: var(--ink-2); letter-spacing: 0; }
+.meta { font: 400 13px/1.5 var(--f-sans); color: var(--muted); }
+.total { font-weight: 700; font-variant-numeric: tabular-nums; border-bottom: 3px double var(--ink); padding-bottom: 1px; white-space: nowrap; }
+.num { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---------- masthead + tabs ---------- */
+.masthead { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--rule); }
+.masthead .inner { max-width: 1240px; margin: 0 auto; height: var(--hdr); display: flex; align-items: center; gap: 16px; }
+.brand { font: 700 15px/1 var(--f-sans); letter-spacing: -0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1; }
+.brand span { font-weight: 400; color: var(--muted); }
+.tabs { display: flex; gap: 4px; flex-shrink: 0; }
+.tab { font: 600 14px/1 var(--f-sans); background: none; border: 0; color: var(--ink-2); padding: 10px 12px; cursor: pointer; }
+.tab:hover { background: var(--paper-2); color: var(--ink); }
+.tab[aria-selected="true"] { background: var(--accent); color: var(--on-accent); }
+.tab-short { display: none; }
+@media (max-width: 560px) { .brand { display: none; } .tabs { flex: 1; justify-content: space-between; } .tab { padding: 10px 14px; font-size: 14px; } .tab-long { display: none; } .tab-short { display: inline; } }
+
+/* ---------- hero ---------- */
+.hero {
+  background:
+    linear-gradient(90deg, transparent 0 calc(max(16px, env(safe-area-inset-left, 0px)) - 10px), var(--accent) 0 calc(max(16px, env(safe-area-inset-left, 0px)) - 8px), transparent 0 calc(max(16px, env(safe-area-inset-left, 0px)) - 5px), var(--accent) 0 calc(max(16px, env(safe-area-inset-left, 0px)) - 3px), transparent 0),
+    repeating-linear-gradient(180deg, transparent 0 31px, var(--ledger) 31px 32px);
+  border-bottom: 1px solid var(--rule);
+}
+.hero .inner { max-width: 1240px; margin: 0 auto; padding-block: 60px 52px; padding-inline: 22px 0; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 48px; align-items: end; }
+.hero-text { display: grid; gap: 20px; }
+.hero h1 { font-size: clamp(44px, 7vw, 88px); letter-spacing: -0.045em; line-height: 1; }
+.hero .sub { font-size: clamp(20px, 2.2vw, 26px); }
+.hero .dek { font-size: 19px; max-width: 34em; color: var(--ink-2); }
+.howto { display: grid; gap: 4px; font-size: 15px; color: var(--ink-2); padding-left: 0; margin: 0; list-style: none; }
+.howto li::before { content: "→ "; color: var(--muted); }
+.guess { background: var(--card); padding: 24px; display: grid; gap: 14px; }
+.guess h2 { font-size: 18px; }
+.guess p { font-size: 16px; color: var(--ink-2); }
+.guess .row { display: flex; align-items: center; gap: 14px; }
+.guess input[type="range"] { -webkit-appearance: none; appearance: none; flex: 1; min-width: 0; height: 28px; margin: 0; background: transparent; cursor: pointer; }
+.guess input[type="range"]::-webkit-slider-runnable-track { height: 8px; border: 0; background: linear-gradient(90deg, var(--accent) 0 var(--p, 50%), var(--paper) var(--p, 50%) 100%); }
+.guess input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; margin-top: -7px; border: 0; border-radius: 0; background: var(--ink); }
+.guess input[type="range"]::-moz-range-track { height: 8px; border: 0; background: var(--paper); }
+.guess input[type="range"]::-moz-range-progress { height: 8px; background: var(--accent); }
+.guess input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border: 0; border-radius: 0; background: var(--ink); }
+.guess input[type="range"]:focus-visible { outline: 2px solid var(--cap); outline-offset: 4px; }
+.guess output { font: 700 30px/1 var(--f-sans); font-variant-numeric: tabular-nums; min-width: 3.4ch; text-align: right; letter-spacing: -0.03em; }
+.btn { font: 700 14px/1 var(--f-sans); cursor: pointer; background: var(--accent); color: var(--on-accent); border: 0; padding: 12px 18px; }
+.btn:hover { filter: brightness(.94); }
+.btn.ghost { background: var(--paper-2); color: var(--ink); }
+.btn.ghost:hover { filter: none; background: var(--rule); }
+.guess .status { font-size: 13.5px; color: var(--muted); min-height: 1.4em; }
+@media (max-width: 860px) { .hero .inner { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 40px 32px; } }
+
+/* ---------- scrolly ---------- */
+.scrolly { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 40px; position: relative; }
+.steps { grid-column: 1; grid-row: 1; position: relative; z-index: 2; padding-block: 18vh 40vh; }
+.step { min-height: 88vh; display: flex; align-items: center; }
+.step:first-child { min-height: 60vh; align-items: flex-start; }
+.card { background: var(--card); padding: 24px 24px 22px; display: grid; gap: 12px; width: 100%; }
+.card h2 { font-size: 27px; }
+.card .sub { margin-top: -6px; }
+.card p { font-size: 16px; color: var(--ink-2); }
+.card p.note { font-size: 13px; line-height: 1.55; color: var(--muted); }
+.key { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); margin-right: 14px; }
+.key i { width: 14px; height: 10px; display: inline-block; }
+.figure { grid-column: 2; grid-row: 1; align-self: start; position: sticky; top: calc(var(--hdr) + env(safe-area-inset-top, 0px) + 12px); height: calc(100svh - var(--hdr) - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 24px); margin: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; z-index: 1; }
+#viz { width: 100%; height: 100%; display: block; overflow: visible; }
+.figure figcaption { font-size: 12px; line-height: 1.45; color: var(--muted); padding: 6px 0 0; border-top: 1px solid var(--rule); }
+@media (max-width: 860px) {
+  .scrolly { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  /* chart and steps share one grid cell, so the chart stays pinned for the whole run of steps */
+  .figure { grid-area: 1 / 1; align-self: start; height: 54svh; top: calc(var(--hdr) + env(safe-area-inset-top, 0px)); background: var(--paper); padding-top: 8px; }
+  .steps { grid-area: 1 / 1; padding-block: 58svh 30svh; }
+  .step, .step:first-child { min-height: 92svh; align-items: flex-end; }
+  .card { padding: 20px; }
+  .card h2 { font-size: 23px; }
+  .card p { font-size: 15.5px; }
+}
+
+/* chart text */
+.ax text, .t-small { font: 400 11.5px var(--f-sans); font-variant-numeric: tabular-nums; fill: var(--muted); }
+.t-label { font: 600 13px var(--f-sans); letter-spacing: -0.01em; fill: var(--ink); }
+.t-label.dim { fill: var(--muted); font-weight: 400; }
+.t-num { font: 700 13px var(--f-sans); font-variant-numeric: tabular-nums; fill: var(--ink); }
+.t-note { font: 400 12.5px var(--f-sans); fill: var(--ink-2); }
+.halo { paint-order: stroke; stroke: var(--paper); stroke-width: 4px; stroke-linejoin: round; }
+.grid line, .grid path { stroke: var(--rule); fill: none; }
+.tip { position: fixed; z-index: 50; pointer-events: none; background: var(--card); color: var(--ink); padding: 10px 12px; max-width: 300px; box-shadow: var(--tip-shadow); font: 400 13.5px/1.45 var(--f-sans); }
+.tip b { font-weight: 700; }
+.tip .mono { font-size: 12px; color: var(--muted); display: block; margin-top: 4px; }
+
+/* ---------- ending ---------- */
+.after { background: var(--paper-2); }
+.after .inner { max-width: 1240px; margin: 0 auto; padding-block: 72px; display: grid; gap: 28px; }
+.after h2 { font-size: clamp(32px, 4.4vw, 52px); letter-spacing: -0.04em; line-height: 1.04; max-width: 18ch; }
+.after .lead { font-size: 18px; color: var(--ink-2); max-width: 40em; }
+.quote { font: italic 400 clamp(20px, 2.3vw, 27px)/1.4 var(--f-serif); color: var(--ink); max-width: 34em; padding-left: 22px; border-left: 4px solid var(--accent); }
+.quote cite { display: block; margin-top: 10px; font: 400 13px var(--f-sans); color: var(--muted); }
+.takeaways { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.takeaway { background: var(--paper); padding: 20px; display: grid; gap: 8px; align-content: start; }
+.takeaway h3 { font-size: 18px; }
+.takeaway p { font-size: 15.5px; color: var(--ink-2); }
+.after .caveat { font-size: 15px; color: var(--muted); max-width: 46em; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.after .btn.ghost { background: var(--paper); }
+
+/* ---------- explore ---------- */
+.page { max-width: 1240px; margin: 0 auto; padding-block: 44px 72px; }
+.page-head { display: grid; gap: 10px; margin-bottom: 26px; }
+.page-head h1 { font-size: clamp(36px, 5vw, 58px); letter-spacing: -0.04em; }
+.page-head p { color: var(--ink-2); max-width: 44em; }
+.controls { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: end; padding: 16px; background: var(--card); margin-bottom: 22px; }
+.ctl { display: grid; gap: 6px; min-width: 0; }
+.ctl-label { font: 600 13px var(--f-sans); color: var(--ink-2); }
+.ctl input[type="search"] { font: 400 15px var(--f-sans); color: var(--ink); background: var(--paper); border: 0; padding: 9px 10px; width: min(300px, 100%); }
+.seg { display: inline-flex; gap: 2px; flex-wrap: wrap; }
+.seg button { font: 600 13px/1 var(--f-sans); background: var(--paper); border: 0; color: var(--ink-2); padding: 9px 11px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.seg button:disabled { opacity: .35; cursor: not-allowed; }
+.explore { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 32px; align-items: start; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 18px; font-size: 12.5px; color: var(--ink-2); }
+.legend .sw { display: inline-flex; align-items: center; gap: 6px; }
+.legend .sw i { width: 14px; height: 14px; display: inline-block; }
+.groups { display: grid; gap: 24px; }
+.group { display: grid; gap: 8px; }
+.group header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; align-items: baseline; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+.group h3 { font-size: 18px; }
+.tiles { display: flex; flex-wrap: wrap; gap: 3px; }
+.tilebtn { width: 30px; height: 30px; border: 0; padding: 0; cursor: pointer; position: relative; transition: transform .12s, opacity .2s; }
+.tilebtn.zero { background: repeating-linear-gradient(135deg, transparent 0 4px, var(--rule) 4px 5px) !important; box-shadow: inset 0 0 0 1px var(--rule-2); }
+.tilebtn:hover { transform: translateY(-2px); }
+.tilebtn.sel { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink); }
+.tilebtn.dim { opacity: .14; }
+.detail { position: sticky; top: calc(var(--hdr) + env(safe-area-inset-top, 0px) + 16px); background: var(--card); padding: 22px; display: grid; gap: 14px; scroll-margin-top: calc(var(--hdr) + env(safe-area-inset-top, 0px) + 12px); }
+.detail .stmt { font: 600 18px/1.4 var(--f-sans); letter-spacing: -0.01em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12.5px; line-height: 1; padding: 7px 9px; background: var(--paper); color: var(--ink-2); }
+.facts { width: 100%; border-collapse: collapse; font-size: 14px; }
+.facts td { padding: 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.facts td:last-child { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; padding-left: 12px; }
+.facts tr.subrow td { color: var(--muted); font-size: 13px; font-weight: 600; }
+.cmp { display: grid; gap: 14px; }
+.cmp-row { display: grid; gap: 2px; }
+.cmp-top { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+.cmp-top b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cmp-note { font-size: 12.5px; color: var(--muted); }
+.cmp svg { width: 100%; height: 30px; display: block; }
+#spark { width: 100%; height: 130px; display: block; }
+@media (max-width: 900px) { .explore { grid-template-columns: minmax(0, 1fr); } .detail { position: static; } }
+.count { font-size: 13px; color: var(--muted); }
+
+/* ---------- method ---------- */
+.method { display: grid; gap: 56px; }
+.method section { display: grid; gap: 14px; max-width: 920px; }
+.method h2 { font-size: 30px; letter-spacing: -0.03em; }
+.method p, .method li { color: var(--ink-2); max-width: 44em; }
+.method ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.pipeline { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.stage { background: var(--card); padding: 16px; display: grid; gap: 6px; align-content: start; position: relative; }
+.stage .n { font: 700 13px var(--f-sans); color: var(--muted); }
+.stage h4 { font-size: 15.5px; }
+.stage p { font-size: 13.5px; line-height: 1.5; }
+.stage:not(:last-child)::after { content: "→"; position: absolute; right: -6px; top: 50%; transform: translate(50%, -50%); color: var(--muted); font: 700 14px var(--f-sans); }
+@media (max-width: 900px) { .pipeline { grid-template-columns: minmax(0, 1fr); } .stage:not(:last-child)::after { content: "↓"; right: 50%; top: auto; bottom: -6px; transform: translate(50%, 50%); } }
+.tablewrap { overflow-x: auto; background: var(--card); }
+table.ref { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+table.ref th, table.ref td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+table.ref th { font: 600 13px var(--f-sans); color: var(--muted); }
+table.ref td:first-child { font-weight: 700; white-space: nowrap; }
+table.ref code { font: 400 13px var(--f-sans); background: var(--paper); padding: 1px 4px; }
+details { border-top: 1px solid var(--rule); padding-top: 10px; }
+summary { cursor: pointer; font: 600 14px var(--f-sans); }
+.formula { font: 400 14px/1.8 var(--f-serif); background: var(--card); padding: 14px 16px; overflow-x: auto; white-space: pre; margin-top: 10px; }
+
+footer .inner { max-width: 1240px; margin: 0 auto; padding-block: 28px 40px; font-size: 12.5px; line-height: 1.6; color: var(--muted); display: grid; gap: 8px; border-top: 1px solid var(--rule); }
+</style>
+
+<header class="masthead">
+  <div class="inner wrap">
+    <div class="brand">“You Will Be Replaced!” <span>AI in Record-to-Report</span></div>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button class="tab" role="tab" id="tab-story" aria-controls="story" aria-selected="true">Story</button>
+      <button class="tab" role="tab" id="tab-explore" aria-controls="explore" aria-selected="false"><span class="tab-long">Explore the tasks</span><span class="tab-short">Explore</span></button>
+      <button class="tab" role="tab" id="tab-method" aria-controls="method" aria-selected="false"><span class="tab-long">How it was measured</span><span class="tab-short">Method</span></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ============================== STORY ============================== -->
+<section id="story" role="tabpanel" aria-labelledby="tab-story">
+  <div class="hero wrap">
+    <div class="inner">
+      <div class="hero-text">
+        <h1>“You will be replaced!”</h1>
+        <p class="sub">for the 1000th time. What real AI usage says about accounting work.</p>
+        <p class="dek">For twenty years, every new technology has arrived with the same headline: accountants are about to disappear. Generative AI is the latest, and accounting is consistently cited among the occupations most exposed to it. This story checks that claim against how people actually use Claude, task by task, across Record-to-Report: keeping the books, closing them, reporting, and planning what comes next.</p>
+        <ul class="howto">
+          <li>Scroll to move through the story. The chart changes with each step.</li>
+          <li>Hover over or tap any dot to see the task behind it.</li>
+          <li>Explore the tasks has all 91 tasks. How it was measured has the method.</li>
+        </ul>
+        <p class="meta">A data story from a master's thesis in accounting · Vinh Le · 2026 · Data: Anthropic Economic Index, Releases 1 to 5</p>
+      </div>
+      <form class="guess" id="guess" autocomplete="off">
+        <h2>Before you scroll, a guess</h2>
+        <label for="guess-range"><p>Of all the working time in Record-to-Report, how much do you think AI already performs <em>successfully</em>?</p></label>
+        <div class="row">
+          <input type="range" id="guess-range" min="0" max="100" step="1" value="50" aria-describedby="guess-status">
+          <output id="guess-out" for="guess-range">50%</output>
+        </div>
+        <div class="row"><button class="btn" type="submit" id="guess-lock">Lock in my guess</button></div>
+        <div class="status" id="guess-status" aria-live="polite">We'll check it about two-thirds of the way down.</div>
+      </form>
+    </div>
+  </div>
+
+  <div class="scrolly wrap">
+    <figure class="figure" id="figure">
+      <svg id="viz" role="img" aria-labelledby="viz-desc"><desc id="viz-desc">Chart that changes with each step of the story.</desc></svg>
+      <figcaption id="viz-cap">Release 5 · Source: Anthropic Economic Index; O*NET 30.2; Eloundou et al. (2024); author's calculations</figcaption>
+    </figure>
+
+    <div class="steps" id="steps">
+      <article class="step" data-state="read"><div class="card">
+        <h2>One process, six parts</h2>
+        <p class="sub">How to read the chart</p>
+        <p>Record-to-Report is how a company keeps and closes its books. The thesis splits it into six parts. Each spoke is one part. The further out a point sits, the larger the share of that part's working time.</p>
+        <p>Record is the biggest part: it holds <span class="num" data-k="recordShare">34%</span> of all the process's time.</p>
+      </div></article>
+
+      <article class="step" data-state="cap"><div class="card">
+        <h2>On paper, AI can do almost all of it</h2>
+        <p class="sub">Theoretical capability</p>
+        <p>Researchers rate every work task for whether a language model could halve the time it takes. In Record-to-Report, <span class="num" data-k="nCap">90 of 91</span> tasks pass. Weighted by working time, that is <span class="total" data-k="capTime">99.8%</span> of the process.</p>
+        <p><span class="key"><i style="background:var(--cap)"></i>Could be done with AI</span></p>
+      </div></article>
+
+      <article class="step" data-state="obs"><div class="card">
+        <h2>In real use, AI takes over far less</h2>
+        <p class="sub">Observed exposure</p>
+        <p>Now the same six parts, measured from real Claude conversations: how much of each part's time sits in tasks people actually hand to AI at work. Close &amp; Consolidation leads at <span class="num" data-k="obsCC">40%</span>. Report barely registers at <span class="num" data-k="obsRep">6%</span>.</p>
+        <p><span class="key"><i style="background:var(--cap)"></i>Could be done</span><span class="key"><i style="background:var(--use)"></i>Actually handed to AI</span></p>
+        <p class="note">0% means no work use. 100% means all of the part's time sits in tasks fully automated at volume.<br>Automated use counts fully, collaborative use counts half.</p>
+      </div></article>
+
+      <article class="step" data-state="tasks"><div class="card">
+        <h2>Six parts, 91 tasks</h2>
+        <p class="sub">The tasks behind the spokes</p>
+        <p>Each dot is one task, from posting journal entries to preparing budgets. Hollow dots never appear in the usage data. Only <span class="num" data-k="nTouched">41</span> of the 91 show up at all.</p>
+        <p><span class="key"><i style="background:var(--use)"></i>Used with Claude</span><span class="key"><i style="background:transparent;box-shadow:inset 0 0 0 1.5px var(--rule-2)"></i>Not seen in the data</span></p>
+        <p class="note">Hover over or tap a dot to read the task.</p>
+      </div></article>
+
+      <article class="step" data-state="conc"><div class="card">
+        <h2>A few tasks take most of the traffic</h2>
+        <p class="sub">Concentration</p>
+        <p>Size each dot by its share of Record-to-Report conversations on Claude.ai and the picture tilts. The busiest fifth of the tasks in use take <span class="total" data-k="top20">76%</span> of all usage.</p>
+        <p class="note">Dot area: share of Claude.ai usage.<br>Hover over or tap a dot to read the task.</p>
+      </div></article>
+
+      <article class="step" data-state="channel"><div class="card">
+        <h2>Software hands it over. People think it through with AI.</h2>
+        <p class="sub">Collaboration mode</p>
+        <p>Split by where the conversation happens. Through the API, where software calls Claude directly, <span class="num" data-k="apiAuto">77%</span> of usage is automation. In the Claude.ai chat, most of it is augmentation (<span class="num" data-k="chatAug">55%</span>): people iterate, check and learn with the AI.</p>
+        <p class="note">Position: share of the task's conversations that are automation.<br>Dot size: the task's share of usage on that platform.<br>Hover over or tap a dot to read the task.</p>
+      </div></article>
+
+      <article class="step" data-state="expertise"><div class="card">
+        <h2>Routine work spreads out, expert work piles up</h2>
+        <p class="sub">Expertise</p>
+        <p>Line the tasks up by the years of education they call for. Record, the most routine part (<span class="num" data-k="recYrs">13.1</span> years on average), spreads its use over many tasks: the busiest takes <span class="num" data-k="recTop">40%</span>. In Master Data and Analysis (about 15 years), a single expert task carries <span class="num" data-k="mdmTop">67%</span> and <span class="num" data-k="abiTop">74%</span> of the part's use.</p>
+        <p class="note">Expertise: ridge-regression estimate of the education a task requires, in years.<br>Tick: the part's time-weighted average.<br>Dot size: conversations on both platforms.<br>Hover over or tap a dot to read the task.</p>
+      </div></article>
+
+      <article class="step" data-state="funnel"><div class="card">
+        <h2>Used is not the same as done</h2>
+        <p class="sub">Effectiveness</p>
+        <p>Now discount every task by how often Claude actually succeeds at it. AI could help with nearly all of the working time. Half of it sits in tasks AI has touched. AI successfully performs about a quarter: <span class="total" data-k="effTime">26%</span>.</p>
+        <p id="guess-echo">You didn't lock in a guess. Scroll back up to try.</p>
+      </div></article>
+
+      <article class="step" data-state="flip"><div class="card">
+        <h2>The most automated parts deliver the least</h2>
+        <p class="sub">The reversal</p>
+        <p>Rank the six parts twice: by how much is handed to AI, then by how much AI actually gets done. The order flips. Close &amp; Consolidation and Record fall. Master Data and Analysis climb to the top.</p>
+      </div></article>
+
+      <article class="step" data-state="drivers"><div class="card">
+        <h2>Not how hard the task is, but how heavy</h2>
+        <p class="sub">What drives success</p>
+        <p>How much expertise a task needs says almost nothing about whether Claude succeeds at it, on either platform. Load does. In the chat, each extra hour the task would take a person costs about <span class="num" data-k="hotSlope">4</span> points of success. Through the API, the more context a task needs, the lower its success.</p>
+        <p class="note">Each dot is a task, Release 5. Lines are least-squares fits.<br>Filled dots: Claude.ai chat. Hollow dots: 1P API.<br>Hover over or tap a dot to read the task.</p>
+      </div></article>
+
+      <article class="step" data-state="circle"><div class="card">
+        <h2>The gap is the work people still do</h2>
+        <p class="sub">Back to the start</p>
+        <p>The blue shape is what AI could do. The green shape is what it successfully gets done today. The space between them is the reviewing, reconciling and deciding that still runs through people, and it is where accounting jobs are being redrawn.</p>
+        <p><span class="key"><i style="background:var(--cap)"></i>Could be done</span><span class="key"><i style="background:var(--eff)"></i>Done successfully</span></p>
+      </div></article>
+    </div>
+  </div>
+
+  <div class="after wrap">
+    <div class="inner">
+      <h2>Accountants aren't disappearing. Their work is moving.</h2>
+      <p class="lead">AI isn't taking over accounting in one sweep. It takes parts of tasks, mostly in posting, closing and analysis, and those parts work unevenly. So people stay in the loop to direct the AI, check its output and correct it. The mix of tasks in an accountant's week is changing: more reviewing and verifying, more knowledge of the neighbouring parts of the process, and more of the judgment calls that models still get wrong.</p>
+      <blockquote class="quote">The question is not only how much of Record-to-Report is exposed to AI, but what the location, composition and effectiveness of that exposure imply for how accounting work is reallocated between people and machines.</blockquote>
+      <h3 style="font-size:20px;margin-top:8px">What this means for finance teams</h3>
+      <div class="takeaways">
+        <div class="takeaway"><h3>Track success, not just use</h3><p>Usage counts and task coverage overstate what AI contributes. Monitor how often AI output holds up, part by part of the process.</p></div>
+        <div class="takeaway"><h3>Keep review controls on AI entries</h3><p>Automation in Record and Close is visible but not yet reliable. Verification becomes a task in its own right that roles can be designed around.</p></div>
+        <div class="takeaway"><h3>Match the channel to the task</h3><p>High-volume, codifiable work suits API automation only where the context it needs can be bounded. Judgment-heavy analysis and planning gain more from AI directed by experienced staff.</p></div>
+        <div class="takeaway"><h3>Protect how juniors learn</h3><p>The gains go to people who already hold the expertise to direct and check the AI, so the paths through which juniors build it matter more, not less.</p></div>
+      </div>
+      <p class="caveat">These are early, directional findings. They rest on Claude data only, and a Claude model judges task success, not accountants. The method page covers what that means.</p>
+      <div class="cta-row">
+        <button class="btn" type="button" data-goto="explore">Find the tasks you do</button>
+        <button class="btn ghost" type="button" data-goto="method">How it was measured</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== EXPLORE ============================== -->
+<section id="explore" role="tabpanel" aria-labelledby="tab-explore" hidden>
+  <div class="page wrap">
+    <div class="page-head">
+      <h1>Find the tasks you do</h1>
+      <p class="sub">Every Record-to-Report task, one tile each</p>
+      <p>Search for a task, pick a release and a platform, and colour the tiles by usage or by automation. Hover over a tile to see the task, and click it for everything measured about it.</p>
+    </div>
+    <div class="controls" role="group" aria-label="Filters">
+      <div class="ctl"><label class="ctl-label" for="q">Search tasks</label><input type="search" id="q" placeholder="e.g. reconcile, budget, journal"></div>
+      <div class="ctl"><span class="ctl-label" id="lbl-rel">Release</span><div class="seg" id="seg-rel" aria-labelledby="lbl-rel"></div></div>
+      <div class="ctl"><span class="ctl-label" id="lbl-plat">Platform</span><div class="seg" id="seg-plat" aria-labelledby="lbl-plat"></div></div>
+      <div class="ctl"><span class="ctl-label" id="lbl-col">Colour by</span><div class="seg" id="seg-col" aria-labelledby="lbl-col"></div></div>
+    </div>
+    <div class="explore">
+      <div>
+        <div class="legend" id="legend"></div>
+        <div class="groups" id="groups"></div>
+      </div>
+      <aside class="detail" id="detail" aria-live="polite"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== METHOD ============================== -->
+<section id="method" role="tabpanel" aria-labelledby="tab-method" hidden>
+  <div class="page wrap">
+    <div class="page-head">
+      <h1>How it was measured</h1>
+      <p class="sub">Everything behind the story, on one page</p>
+      <p>Where the data comes from, how the 91 tasks were built, what each measure means, and where the evidence is thin.</p>
+    </div>
+    <div class="method">
+      <section>
+        <h2>The short version</h2>
+        <p>The Anthropic Economic Index publishes, in privacy-preserving aggregates, which O*NET occupational tasks people use Claude for, on the Claude.ai chat and through the API. This study keeps the 91 tasks that belong to Record-to-Report, gives each one a weight for how much working time it takes, an estimate of the expertise it needs and a wage, and follows them through five releases of the Index. Releases 4 and 5 add how the AI was used and how often it succeeded, which is what the effectiveness measures need.</p>
+      </section>
+
+      <section>
+        <h2>From O*NET tasks to a panel</h2>
+        <div class="pipeline">
+          <div class="stage"><span class="n">Step 1</span><h4>Pick the tasks</h4><p>O*NET 30.2 task statements of accounting and finance occupations: 212 task-occupation rows.</p></div>
+          <div class="stage"><span class="n">Step 2</span><h4>Place them in R2R</h4><p>Several language models and a human rater classify each task into one of six subprocesses, with a consensus round. 91 tasks are in scope.</p></div>
+          <div class="stage"><span class="n">Step 3</span><h4>Weigh and rate them</h4><p>Hours per week (three models, averaged), expertise in years (ridge regression on BLS education), wage (BLS OEWS), capability β (Eloundou et al.).</p></div>
+          <div class="stage"><span class="n">Step 4</span><h4>Match real usage</h4><p>Anthropic Economic Index Releases 1 to 5, Claude.ai and 1P API, merged into one long panel.</p></div>
+          <div class="stage"><span class="n">Step 5</span><h4>Build the measures</h4><p>Exposure, concentration, expertise composition and effective exposure, per task, subprocess and process.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>The measures, in plain words</h2>
+        <div class="tablewrap">
+          <table class="ref">
+            <thead><tr><th>Measure</th><th>The question it answers</th><th>How it is computed</th><th>In the story</th></tr></thead>
+            <tbody>
+              <tr><td>Theoretical capability</td><td>Could a language model halve the time of this task?</td><td>Task counts as capable when its rating <code>β ≥ 0.5</code> (Eloundou et al., 2024).</td><td>Blue shape</td></tr>
+              <tr><td>Task coverage</td><td>Does the task show up in real usage at all?</td><td>Any usage row on either platform in the release.</td><td>Solid vs hollow dots; “touched” bar</td></tr>
+              <tr><td>Observed exposure</td><td>How much of a part's working time is handed to AI at work, at volume?</td><td>Time-weighted mean of a task score that is 0% for unused or low-volume tasks and rises from 50% (all collaborative) to 100% (all automated).</td><td>Red shape</td></tr>
+              <tr><td>Concentration</td><td>Is use spread out, or piled on a few tasks?</td><td>Time-weighted dispersion of task exposure around the part's mean, scaled by conversation volume. The story shows it as the top-fifth share.</td><td>Sized dots</td></tr>
+              <tr><td>Expertise</td><td>How much education does the task call for?</td><td>Ridge regression of occupation education years on task-text embeddings, predicted per task.</td><td>Expertise axis</td></tr>
+              <tr><td>Effective exposure</td><td>How much of the working time does AI perform successfully?</td><td>Sum over all tasks of time weight × success rate. Unused tasks count as 0%.</td><td>Green shape, last bar, rising lines in the reversal</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <details>
+          <summary>Show the formulas</summary>
+          <div class="formula">WorkUsageₜ = Claude.ai work conversationsₜ + 1P API conversationsₜ
+AutoShareₜ = automation / (automation + augmentation)   (Claude.ai)
+αₜ         = 0.5 + 0.5 · (ClaudeWorkₜ · AutoShareₜ + APIₜ) / WorkUsageₜ
+r̃ₜ        = αₜ  if βₜ ≥ 0.5 and WorkUsageₜ ≥ 100,  else 0
+Rₒ         = Σₜ wₜ · r̃ₜ          (wₜ = task time, normalised within the part)
+Effective  = Σₜ wₜ · successₜ    (successₜ pooled over platforms, 0 if unused)</div>
+        </details>
+      </section>
+
+      <section>
+        <h2>How this page differs from the thesis text</h2>
+        <ul>
+          <li><b>Release 5</b> is shown throughout the story. The thesis reports Release 4 alongside it, and the explorer covers Releases 1 to 5.</li>
+          <li><b>All shares are shown as percentages.</b> The thesis reports observed exposure as an index from 0 to 1, so 0.40 there is 40% here.</li>
+          <li><b>The usage gate is on</b> (WorkUsage ≥ 100) for observed exposure, as in the thesis's main specification. Without the gate, process exposure is <span class="num" data-k="obsOff">35%</span> instead of <span class="num" data-k="obsOn">20%</span>.</li>
+          <li><b>The three bars in “Used is not the same as done” are all shares of working time</b>, so they can be compared directly. The thesis states the first two as task counts: <span class="num" data-k="nCap2">90 of 91</span> tasks capable and <span class="num" data-k="nTouched2">41 of 91</span> touched.</li>
+          <li><b>Effective and observed exposure measure different things.</b> Effective exposure counts every use, collaborative or not. Observed exposure counts only work use at volume. That is why a part can score higher on the first than on the second.</li>
+          <li><b>“The busiest fifth takes 76%”</b> is the top-20% share on the Claude.ai Lorenz curve (Figure 10). Gini coefficient: <span class="num" data-k="gini">0.71</span>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Where the evidence is thin</h2>
+        <ul>
+          <li><b>Almost every measure comes from AI annotation.</b> Clio assigns conversations to tasks, Claude-based classifiers judge collaboration mode and success, and three models estimate task hours. Agreement between models shows reliability, not validity.</li>
+          <li><b>Task success is the least validated measure.</b> A Claude model judges Claude conversations, without review by accountants.</li>
+          <li><b>Claude only.</b> Claude users may not represent accounting professionals, and API traffic may come from developers building tools. Near-zero exposure in Report and Planning may reflect use of other platforms.</li>
+          <li><b>Usage, not outcomes.</b> The Index records use. It cannot show what that use does to jobs, and the fixed O*NET task list cannot show new tasks appearing.</li>
+          <li><b>Two releases for the key measures.</b> Observed exposure, concentration and success exist only for Releases 4 and 5.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Data and code</h2>
+        <div class="tablewrap">
+          <table class="ref">
+            <thead><tr><th>Data</th><th>Source</th><th>Licence</th></tr></thead>
+            <tbody>
+              <tr><td>Anthropic Economic Index, R1 to R5</td><td><a href="https://huggingface.co/datasets/Anthropic/EconomicIndex" target="_blank" rel="noopener">huggingface.co/datasets/Anthropic/EconomicIndex</a></td><td>CC BY</td></tr>
+              <tr><td>O*NET 30.2 tasks and ratings</td><td><a href="https://www.onetcenter.org/database.html" target="_blank" rel="noopener">onetcenter.org/database.html</a></td><td>CC BY 4.0</td></tr>
+              <tr><td>BLS education by occupation</td><td><a href="https://www.bls.gov/emp/tables/education-and-training-by-occupation.htm" target="_blank" rel="noopener">bls.gov/emp</a></td><td>Public domain</td></tr>
+              <tr><td>BLS OEWS wages, May 2025</td><td><a href="https://www.bls.gov/oes/tables.htm" target="_blank" rel="noopener">bls.gov/oes</a></td><td>Public domain</td></tr>
+              <tr><td>GPT exposure ratings β</td><td><a href="https://github.com/openai/GPTs-are-GPTs" target="_blank" rel="noopener">github.com/openai/GPTs-are-GPTs</a></td><td>MIT</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Every number on this page is computed from the thesis's replication pipeline: <a href="https://github.com/vvinhhh/masters-thesis" target="_blank" rel="noopener">github.com/vvinhhh/masters-thesis</a>. Each figure and table there has a CSV next to it.</p>
+        <p class="sub" style="font-size:15px">Le, V. (2026). “You Will Be Replaced!” for the 1000th time: A task-level analysis of generative AI exposure in the Record-to-Report process [Master's thesis].</p>
+      </section>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="inner">
+    <p>Usage data: Anthropic Economic Index (CC BY), built from Clio, Anthropic's privacy-preserving analysis system. Only published aggregates are used here.</p>
+    <p>This page includes information from the O*NET 30.2 Database by the U.S. Department of Labor, Employment and Training Administration (USDOL/ETA), used under CC BY 4.0 and modified by the author. USDOL/ETA has not approved, endorsed, or tested these modifications.</p>
+  </div>
+</footer>
+<div class="tip" id="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const D = /*__DATA__*/null;
+(() => {
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const DUR = reduceMotion ? 0 : 800;
+const tok = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} }
+};
+const pct = (v, d = 0) => (v * 100).toFixed(d) + '%';
+
+// ---------------------------------------------------------------- data
+const SUBS = D.subprocesses;
+const SP = SUBS.map(s => s.name);
+const SHORT = Object.fromEntries(SUBS.map(s => [s.name, s.short]));
+const TINY = { 'Master Data Management': 'Master Data', 'Record': 'Record', 'Close & Consolidation': 'Close', 'Report': 'Report', 'Analysis & Business Insight': 'Analysis', 'Planning & Budgeting': 'Planning' };
+const tasks = D.tasks;
+tasks.forEach(t => {
+  const c5 = t.rel['claude_ai_5'] || {}, a5 = t.rel['1p_api_5'] || {};
+  t.uC = c5.u || 0; t.uA = a5.u || 0; t.aC = c5.a; t.aA = a5.a;
+  t.convT = (t.conv.claude_ai || 0) + (t.conv['1p_api'] || 0);
+  t.spi = SP.indexOf(t.sp);
+});
+const usedC = tasks.filter(t => t.uC > 0).sort((a, b) => b.uC - a.uC);
+const nTop = Math.round(usedC.length * 0.2);
+usedC.slice(0, nTop).forEach(t => t.top = true);
+const P = D.process;
+// per part: time-weighted expertise and the busiest task's share of the part's conversations
+const PART = Object.fromEntries(SP.map(s => {
+  const ts = tasks.filter(t => t.sp === s), tot = d3.sum(ts, t => t.convT);
+  const top = ts.slice().sort((a, b) => b.convT - a.convT)[0];
+  return [s, { yrs: d3.sum(ts, t => t.yrs * t.w) / d3.sum(ts, t => t.w), top, topShare: tot ? top.convT / tot : 0 }];
+}));
+
+// fill the numbers in the text from the data
+const K = {
+  recordShare: pct(SUBS[1].time_share), nCap: `${P.n_capable} of ${P.n}`, nCap2: `${P.n_capable} of ${P.n}`, capTime: pct(P.cap_time, 1),
+  obsCC: pct(SUBS[2].obs_on), obsRep: pct(SUBS[3].obs_on), nTouched: String(P.n_touched), nTouched2: `${P.n_touched} of ${P.n}`,
+  top20: Math.round(D.concentration.claude_ai.top20) + '%', apiAuto: Math.round(D.channel['1p_api'].auto) + '%',
+  chatAug: Math.round(D.channel.claude_ai.aug) + '%', effTime: pct(P.eff_time), hotSlope: Math.abs(D.drivers.hot.slope).toFixed(0),
+  obsOff: pct(P.obs_off), obsOn: pct(P.obs_on), gini: D.concentration.claude_ai.gini.toFixed(2),
+  recYrs: PART['Record'].yrs.toFixed(1), recTop: pct(PART['Record'].topShare),
+  mdmTop: pct(PART['Master Data Management'].topShare), abiTop: pct(PART['Analysis & Business Insight'].topShare)
+};
+$$('[data-k]').forEach(el => { if (K[el.dataset.k] != null) el.textContent = K[el.dataset.k]; });
+
+// ---------------------------------------------------------------- tabs
+const TABS = ['story', 'explore', 'method'];
+function showTab(id, push = true) {
+  if (!TABS.includes(id)) id = 'story';
+  TABS.forEach(t => {
+    $('#' + t).hidden = t !== id;
+    $('#tab-' + t).setAttribute('aria-selected', String(t === id));
+  });
+  if (push) { try { history.replaceState(null, '', '#' + id); } catch {} }
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  if (id === 'story') requestAnimationFrame(() => { layout(); render(cur, false); });
+  if (id === 'explore') renderExplore();
+}
+TABS.forEach(t => $('#tab-' + t).addEventListener('click', () => showTab(t)));
+$$('[data-goto]').forEach(b => b.addEventListener('click', () => showTab(b.dataset.goto)));
+window.addEventListener('hashchange', () => showTab(location.hash.slice(1), false));
+
+// ---------------------------------------------------------------- guess
+let guess = null;
+const saved = Number(store.get('r2r-guess'));
+const range = $('#guess-range'), out = $('#guess-out');
+const paintRange = () => range.style.setProperty('--p', range.value + '%');
+range.addEventListener('input', () => { out.textContent = range.value + '%'; paintRange(); });
+paintRange();
+function setGuess(v, announce) {
+  guess = v;
+  range.value = v; out.textContent = v + '%'; paintRange();
+  if (announce) $('#guess-status').textContent = `Locked in at ${v}%. Keep scrolling; we'll check it.`;
+  const eff = Math.round(P.eff_time * 100), diff = v - eff;
+  $('#guess-echo').innerHTML = `You guessed <span class="num">${v}%</span>. ` + (Math.abs(diff) <= 5 ? 'That is close.' : diff > 0 ? `That is ${diff} points too high, the usual direction.` : `That is ${-diff} points too low.`);
+}
+if (store.get('r2r-guess') !== null && !Number.isNaN(saved)) { setGuess(saved, false); $('#guess-status').textContent = `Your earlier guess: ${saved}%. Change it and lock it in again if you like.`; }
+$('#guess').addEventListener('submit', e => { e.preventDefault(); const v = Number(range.value); store.set('r2r-guess', String(v)); setGuess(v, true); if (cur === 'funnel') render('funnel', true); });
+
+// ---------------------------------------------------------------- tooltip
+const tip = $('#tip');
+function showTip(e, html) {
+  tip.innerHTML = html; tip.hidden = false;
+  const pad = 14, r = tip.getBoundingClientRect();
+  let x = e.clientX + pad, y = e.clientY + pad;
+  if (x + r.width > innerWidth - 8) x = e.clientX - r.width - pad;
+  if (y + r.height > innerHeight - 8) y = e.clientY - r.height - pad;
+  tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
+}
+const hideTip = () => { tip.hidden = true; };
+const trunc = (s, n) => s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+function taskTip(t, extra = '') {
+  return `<b>${cap(trunc(t.s, 150))}</b><span class="mono">${t.sp} · ${t.occ}${extra ? '<br>' + extra : ''}</span>`;
+}
+
+// ================================================================= STORY CHART
+const svg = d3.select('#viz');
+const fig = $('#figure');
+let W = 600, H = 500, narrow = false;
+const L = {};
+['grid', 'radar', 'dots', 'channel', 'bars', 'slope', 'drivers', 'annot'].forEach(k => L[k] = svg.append('g').attr('class', 'l-' + k).attr('opacity', 0));
+let cur = 'read';
+
+function layout() {
+  const r = svg.node().getBoundingClientRect();
+  if (r.width < 10) return false;
+  W = r.width; H = r.height; narrow = W < 520;
+  svg.attr('viewBox', `0 0 ${W} ${H}`);
+  computeDots();
+  return true;
+}
+
+function showLayers(names, animate) {
+  Object.entries(L).forEach(([k, g]) => {
+    const on = names.includes(k);
+    (animate ? g.transition().duration(DUR * .6) : g.interrupt()).attr('opacity', on ? 1 : 0);
+    g.style('pointer-events', on ? null : 'none');
+  });
+}
+const T = (sel, animate) => animate ? sel.transition().duration(DUR).ease(d3.easeCubicInOut) : sel.interrupt();
+
+// ---------- annotations (note + connector + subject)
+function annotate(items, animate) {
+  const g = L.annot.selectAll('g.note').data(items, d => d.id);
+  g.exit().remove();
+  const e = g.enter().append('g').attr('class', 'note').attr('opacity', 0);
+  e.append('line').attr('stroke', 'var(--ink-2)').attr('stroke-width', 1);
+  e.append('circle').attr('r', 3).attr('fill', 'var(--ink)');
+  e.append('text').attr('class', 't-note halo');
+  const m = e.merge(g);
+  m.each(function (d) {
+    const s = d3.select(this);
+    const tx = d.x + (d.dx || 0), ty = d.y + (d.dy || 0);
+    s.select('line').attr('x1', d.x).attr('y1', d.y).attr('x2', tx).attr('y2', ty + (d.dy < 0 ? 4 : -4)).attr('opacity', d.dx || d.dy ? 1 : 0);
+    s.select('circle').attr('cx', d.x).attr('cy', d.y).attr('opacity', d.dot === false ? 0 : 1);
+    const text = s.select('text').attr('text-anchor', d.anchor || 'start').attr('x', tx).attr('y', ty);
+    text.selectAll('tspan').remove();
+    String(d.text).split('\n').forEach((line, i, arr) => text.append('tspan').attr('x', tx).attr('dy', i === 0 ? (d.dy < 0 ? -(arr.length - 1) * 15 : 0) : 15).text(line).attr('font-weight', i === 0 && d.bold ? 600 : null));
+  });
+  (animate ? m.transition().delay(DUR * .7).duration(DUR * .5) : m).attr('opacity', 1);
+}
+
+// ---------- radar
+function rg() {
+  const labelW = narrow ? 84 : 150;
+  const R = Math.max(70, Math.min((W / 2 - labelW) / 0.87, H / 2 - (narrow ? 44 : 52)));
+  return { cx: W / 2, cy: H / 2 - 2, R };
+}
+function rpt(i, v, g) { const a = -Math.PI / 2 + i * Math.PI / 3; return [g.cx + Math.cos(a) * g.R * v, g.cy + Math.sin(a) * g.R * v]; }
+const poly = (vals, g) => 'M' + vals.map((v, i) => rpt(i, v, g).map(n => n.toFixed(2)).join(',')).join('L') + 'Z';
+
+function drawRadarFrame() {
+  const g = rg();
+  L.grid.selectAll('*').remove();
+  const gr = L.grid.append('g').attr('class', 'grid');
+  [0.25, 0.5, 0.75, 1].forEach(v => gr.append('path').attr('d', poly(SP.map(() => v), g)).attr('stroke-width', v === 1 ? 1.2 : 1));
+  SP.forEach((s, i) => { const [x, y] = rpt(i, 1, g); gr.append('line').attr('x1', g.cx).attr('y1', g.cy).attr('x2', x).attr('y2', y).attr('class', 'spoke').attr('data-i', i); });
+  [0.25, 0.5, 0.75].forEach(v => { const [x, y] = rpt(0, v, g); gr.append('text').attr('class', 't-small halo').attr('x', x + 5).attr('y', y + 4).text(pct(v)); });
+  SP.forEach((s, i) => {
+    const [x, y] = rpt(i, 1, g);
+    const dx = x - g.cx, anchor = Math.abs(dx) < 5 ? 'middle' : dx > 0 ? 'start' : 'end';
+    const off = 14, a = -Math.PI / 2 + i * Math.PI / 3;
+    const lx = x + Math.cos(a) * off, ly = y + Math.sin(a) * off + (i === 0 ? -6 : i === 3 ? 14 : 4);
+    gr.append('text').attr('class', 't-label').attr('text-anchor', anchor).attr('x', lx).attr('y', ly).text(narrow ? TINY[s] : SHORT[s]);
+    gr.append('text').attr('class', 't-small').attr('text-anchor', anchor).attr('x', lx).attr('y', ly + 14).text(pct(SUBS[i].time_share) + (narrow ? ' time' : ' of time'));
+  });
+}
+function radarShapes(vals, animate) {
+  const g = rg(), zero = SP.map(() => 0);
+  const spec = [
+    { k: 'cap', v: vals.cap, c: 'var(--cap)' },
+    { k: 'obs', v: vals.obs, c: 'var(--use)' },
+    { k: 'eff', v: vals.eff, c: 'var(--eff)' },
+  ];
+  const sel = L.radar.selectAll('path.shape').data(spec, d => d.k);
+  const ent = sel.enter().append('path').attr('class', 'shape').attr('d', poly(zero, g))
+    .attr('fill', d => d.c).attr('fill-opacity', .13).attr('stroke', d => d.c).attr('stroke-width', 2).attr('stroke-linejoin', 'round');
+  const m = ent.merge(sel);
+  T(m, animate).attr('d', d => poly(d.v || zero, g)).attr('opacity', d => d.v ? 1 : 0);
+  // vertex dots
+  const pts = spec.flatMap(s => SP.map((sp, i) => ({ id: s.k + i, k: s.k, i, v: s.v ? s.v[i] : 0, on: !!s.v, c: s.c })));
+  const ds = L.radar.selectAll('circle.vx').data(pts, d => d.id);
+  const de = ds.enter().append('circle').attr('class', 'vx').attr('r', 4.5).attr('stroke', 'var(--paper)').attr('stroke-width', 2)
+    .attr('cx', g.cx).attr('cy', g.cy).attr('fill', d => d.c);
+  T(de.merge(ds), animate).attr('cx', d => rpt(d.i, d.v, g)[0]).attr('cy', d => rpt(d.i, d.v, g)[1]).attr('opacity', d => d.on ? 1 : 0);
+}
+
+// ---------- dots: precomputed positions per state
+let POS = {};
+const rUse = d3.scaleSqrt();
+function swarm(nodes, fx, fy, strength = [0.12, 0.12], ticks = 260) {
+  const sim = d3.forceSimulation(nodes)
+    .force('x', d3.forceX(fx).strength(strength[0]))
+    .force('y', d3.forceY(fy).strength(strength[1]))
+    .force('c', d3.forceCollide(d => d.r + 1.3).iterations(3)).stop();
+  for (let i = 0; i < ticks; i++) sim.tick();
+  return nodes;
+}
+function clusterCells() {
+  const cols = W / H > 1.15 ? 3 : 2, rows = 6 / cols, top = 6, labelH = 34;
+  const cw = W / cols, ch = (H - top) / rows;
+  return SP.map((s, i) => { const c = i % cols, r = Math.floor(i / cols); return { x: c * cw + cw / 2, y: top + r * ch + labelH + (ch - labelH) / 2, top: top + r * ch, cw, ch, labelH }; });
+}
+function seed(t, c) { const a = (Number(t.id) * 2.39996) % (2 * Math.PI); return { x: c.x + Math.cos(a) * 20, y: c.y + Math.sin(a) * 20 }; }
+function computeDots() {
+  const cells = clusterCells();
+  const c0 = cells[0];
+  const r0 = Math.max(3.5, Math.min(narrow ? 7 : 10, Math.sqrt(c0.cw * (c0.ch - c0.labelH) * 0.3 / (31 * Math.PI))));
+  // state "tasks": equal dots
+  POS.tasks = Object.fromEntries(swarm(tasks.map(t => ({ id: t.id, r: r0, ...seed(t, cells[t.spi]), c: cells[t.spi] })), d => d.c.x, d => d.c.y, [0.1, 0.1]).map(d => [d.id, d]));
+  // state "conc": sized by Claude.ai usage share
+  const maxR = Math.min(c0.cw, c0.ch - c0.labelH) * (narrow ? 0.26 : 0.24);
+  rUse.domain([0, d3.max(tasks, t => t.uC)]).range([0, maxR]);
+  POS.conc = Object.fromEntries(swarm(tasks.map(t => ({ id: t.id, r: t.uC > 0 ? Math.max(3, rUse(t.uC)) : 2.4, ...seed(t, cells[t.spi]), c: cells[t.spi] })), d => d.c.x, d => d.c.y, [0.1, 0.1]).map(d => [d.id, d]));
+  POS.cells = cells;
+  // state "expertise": rows by subprocess, x = years
+  const m = { l: narrow ? 86 : 150, r: narrow ? 10 : 24, t: 14, b: 40 };
+  const x = d3.scaleLinear().domain([9, 17.5]).range([m.l, W - m.r]);
+  const rowH = (H - m.t - m.b) / 6;
+  const rConv = d3.scaleSqrt().domain([0, d3.max(tasks, t => t.convT)]).range([0, Math.min(rowH * 0.4, narrow ? 13 : 18)]);
+  POS.exp = { x, rowH, m, map: Object.fromEntries(swarm(tasks.map(t => ({ id: t.id, r: t.touched && t.convT > 0 ? Math.max(3, rConv(t.convT)) : 2.6, x: x(t.yrs), y: m.t + rowH * (t.spi + .5), tx: x(t.yrs), ty: m.t + rowH * (t.spi + .5) })), d => d.tx, d => d.ty, [0.9, 0.18]).map(d => [d.id, d])) };
+  // state "channel": two rows, x = automation share
+  const cm = { l: narrow ? 14 : 30, r: narrow ? 14 : 30 };
+  const cx = d3.scaleLinear().domain([0, 100]).range([cm.l, W - cm.r]);
+  const rows = [{ p: 'claude_ai', y: H * 0.34, label: 'Claude.ai chat' }, { p: '1p_api', y: H * 0.76, label: '1P API (software calling Claude)' }];
+  const rCh = d3.scaleSqrt().domain([0, d3.max(tasks, t => Math.max(t.uC, t.uA))]).range([0, Math.min(H * 0.1, narrow ? 15 : 24)]);
+  const chNodes = [];
+  rows.forEach(row => tasks.forEach(t => {
+    const u = row.p === 'claude_ai' ? t.uC : t.uA, a = row.p === 'claude_ai' ? t.aC : t.aA;
+    if (u > 0 && a != null) chNodes.push({ id: t.id + row.p, t, p: row.p, u, a, r: Math.max(3, rCh(u)), x: cx(a), y: row.y, tx: cx(a), ty: row.y });
+  }));
+  swarm(chNodes, d => d.tx, d => d.ty, [0.8, 0.1]);
+  POS.ch = { x: cx, rows, nodes: chNodes };
+}
+
+function drawDots(state, animate) {
+  const g = rg();
+  const sel = L.dots.selectAll('circle.task').data(tasks, d => d.id);
+  const ent = sel.enter().append('circle').attr('class', 'task').attr('r', 0)
+    .attr('cx', d => rpt(d.spi, 1, g)[0]).attr('cy', d => rpt(d.spi, 1, g)[1]).attr('stroke-width', 1.5)
+    .on('pointerenter pointermove', (e, t) => showTip(e, taskTip(t, `Claude.ai share of R2R usage: ${t.uC.toFixed(2)}% · expertise ${t.yrs} yrs`)))
+    .on('pointerleave', hideTip);
+  const m = ent.merge(sel);
+  let pos, fill, stroke, op;
+  if (state === 'tasks') {
+    pos = d => POS.tasks[d.id]; fill = d => d.touched ? 'var(--use)' : 'transparent'; stroke = d => d.touched ? 'var(--paper)' : 'var(--rule-2)'; op = () => 1;
+  } else if (state === 'conc') {
+    pos = d => POS.conc[d.id]; fill = d => d.uC > 0 ? 'var(--use)' : 'transparent'; stroke = d => d.uC > 0 ? 'var(--paper)' : 'var(--rule-2)'; op = d => d.top || d.uC === 0 ? 1 : 0.42;
+  } else if (state === 'expertise') {
+    pos = d => POS.exp.map[d.id]; fill = d => d.touched && d.convT > 0 ? 'var(--use)' : 'transparent'; stroke = d => d.touched && d.convT > 0 ? 'var(--paper)' : 'var(--rule-2)'; op = d => d.touched ? 0.9 : 1;
+  } else { // radar states: tuck the dots into their spoke tips
+    pos = d => { const [x, y] = rpt(d.spi, 1, g); return { x, y, r: 0 }; }; fill = () => 'var(--use)'; stroke = () => 'var(--paper)'; op = () => 0;
+  }
+  T(m, animate).attr('cx', d => pos(d).x).attr('cy', d => pos(d).y).attr('r', d => pos(d).r)
+    .attr('fill', fill).attr('stroke', stroke).attr('opacity', op);
+
+  // cluster / row labels
+  L.dots.selectAll('g.dl').remove();
+  const lab = L.dots.append('g').attr('class', 'dl');
+  if (state === 'tasks' || state === 'conc') {
+    POS.cells.forEach((c, i) => {
+      const s = SUBS[i];
+      lab.append('text').attr('class', 't-label').attr('text-anchor', 'middle').attr('x', c.x).attr('y', c.top + 14).text(narrow ? TINY[s.name] : SHORT[s.name]);
+      const sub = state === 'tasks' ? `${s.n_touched} of ${s.n} used` : `${d3.sum(tasks.filter(t => t.spi === i), t => t.uC).toFixed(0)}% of usage`;
+      lab.append('text').attr('class', 't-small').attr('text-anchor', 'middle').attr('x', c.x).attr('y', c.top + 28).text(sub);
+    });
+  }
+  if (state === 'expertise') {
+    const { x, rowH, m: mm } = POS.exp;
+    SP.forEach((s, i) => {
+      const y = mm.t + rowH * i;
+      lab.append('line').attr('x1', 0).attr('x2', W - mm.r).attr('y1', y + rowH).attr('y2', y + rowH).attr('stroke', 'var(--rule)');
+      lab.append('text').attr('class', 't-label').attr('text-anchor', 'end').attr('x', mm.l - 12).attr('y', y + rowH / 2 + 4).text(narrow ? TINY[s] : SHORT[s]);
+      const ax0 = x(PART[s].yrs);
+      lab.insert('line', ':first-child').attr('x1', ax0).attr('x2', ax0).attr('y1', y + 5).attr('y2', y + rowH - 5).attr('stroke', 'var(--ink)').attr('stroke-width', 2);
+    });
+    const ax = lab.append('g').attr('class', 'ax').attr('transform', `translate(0,${H - mm.b + 16})`);
+    [10, 12, 14, 16].forEach(v => ax.append('text').attr('x', x(v)).attr('text-anchor', 'middle').text(v + ' yrs'));
+    ax.append('text').attr('x', mm.l).attr('y', 18).text('← less education needed');
+    ax.append('text').attr('x', W - mm.r).attr('y', 18).attr('text-anchor', 'end').text('more →');
+  }
+  if (animate) lab.attr('opacity', 0).transition().delay(DUR * .5).duration(DUR * .5).attr('opacity', 1);
+}
+
+function drawChannel(animate) {
+  const { x, rows, nodes } = POS.ch;
+  L.channel.selectAll('g.frame').remove();
+  const f = L.channel.insert('g', ':first-child').attr('class', 'frame');
+  rows.forEach(row => {
+    f.append('line').attr('x1', x(0)).attr('x2', x(100)).attr('y1', row.y).attr('y2', row.y).attr('stroke', 'var(--rule)');
+    f.append('text').attr('class', 't-label').attr('x', x(0)).attr('y', row.y - H * 0.15).text(row.label);
+    const avg = D.channel[row.p].auto;
+    f.append('line').attr('x1', x(avg)).attr('x2', x(avg)).attr('y1', row.y - H * 0.12).attr('y2', row.y + H * 0.12).attr('stroke', 'var(--ink)').attr('stroke-width', 1.5);
+    const right = avg > 60;
+    f.append('text').attr('class', 't-num halo').attr('text-anchor', right ? 'end' : 'start').attr('x', x(avg) + (right ? -6 : 6)).attr('y', row.y - H * 0.12 + 10)
+      .text(`${Math.round(avg)}% automation`);
+  });
+  const ax = f.append('g').attr('class', 'ax').attr('transform', `translate(0,${H - 12})`);
+  [0, 50, 100].forEach(v => ax.append('text').attr('x', x(v)).attr('text-anchor', v === 0 ? 'start' : v === 100 ? 'end' : 'middle').attr('y', -16).text(v + '%'));
+  ax.append('text').attr('x', x(0)).text('← works with AI');
+  ax.append('text').attr('x', x(100)).attr('text-anchor', 'end').text('hands it over →');
+  const sel = L.channel.selectAll('circle.ch').data(nodes, d => d.id);
+  sel.exit().remove();
+  const e = sel.enter().append('circle').attr('class', 'ch').attr('fill', 'var(--use)').attr('stroke', 'var(--paper)').attr('stroke-width', 1.5)
+    .attr('cx', d => x(50)).attr('cy', H / 2).attr('r', 0)
+    .on('pointerenter pointermove', (ev, d) => showTip(ev, taskTip(d.t, `${d.p === '1p_api' ? '1P API' : 'Claude.ai'}: ${d.a.toFixed(0)}% automation · ${d.u.toFixed(2)}% of usage`)))
+    .on('pointerleave', hideTip);
+  T(e.merge(sel), animate).attr('cx', d => d.x).attr('cy', d => d.y).attr('r', d => d.r).attr('fill-opacity', 0.85);
+}
+
+function drawBars(animate) {
+  L.bars.selectAll('*').remove();
+  const m = { l: narrow ? 4 : 20, r: narrow ? 52 : 70 };
+  const x = d3.scaleLinear().domain([0, 1]).range([m.l, W - m.r]);
+  const rows = [
+    { k: 'cap', label: 'AI could help with it', v: P.cap_time, c: 'var(--cap)' },
+    { k: 'touched', label: 'AI has touched the task', v: P.touched_time, c: 'var(--use)' },
+    { k: 'eff', label: 'AI does it successfully', v: P.eff_time, c: 'var(--eff)' },
+  ];
+  const band = Math.min(110, (H - 60) / 3), bh = narrow ? 22 : 24, top = (H - band * 3) / 2 + 10;
+  L.bars.append('text').attr('class', 't-small').attr('x', m.l).attr('y', top - 12).text(narrow ? 'Share of R2R working time' : 'Share of all Record-to-Report working time, Release 5');
+  rows.forEach((r, i) => {
+    const y = top + i * band + 26;
+    L.bars.append('text').attr('class', 't-label').attr('x', m.l).attr('y', y - 10).text(r.label);
+    L.bars.append('rect').attr('x', x(0)).attr('y', y).attr('height', bh).attr('width', x(1) - x(0)).attr('fill', 'var(--paper-2)');
+    const bar = L.bars.append('path').attr('fill', r.c);
+    const shape = w => `M${x(0)},${y}h${Math.max(0, w)}v${bh}h${-Math.max(0, w)}Z`;
+    if (animate && !reduceMotion) bar.attr('d', shape(0)).transition().delay(i * 220).duration(DUR).attrTween('d', () => t => shape((x(r.v) - x(0)) * t));
+    else bar.attr('d', shape(x(r.v) - x(0)));
+    L.bars.append('text').attr('class', 't-num').attr('x', x(r.v) + 8).attr('y', y + bh / 2 + 4.5).text(pct(r.v, r.v > 0.99 ? 1 : 0));
+  });
+  if (guess != null) {
+    const gx = x(guess / 100), y0 = top + 2 * band + 8, y1 = top + 2 * band + 26 + bh + 10;
+    L.bars.append('line').attr('x1', gx).attr('x2', gx).attr('y1', y0).attr('y2', y1).attr('stroke', 'var(--ink)').attr('stroke-width', 2).attr('stroke-dasharray', '4 3');
+    L.bars.append('text').attr('class', 't-note halo').attr('x', gx).attr('y', y1 + 15).attr('text-anchor', gx > W - 90 ? 'end' : gx < 90 ? 'start' : 'middle').text(`your guess: ${guess}%`);
+  }
+}
+
+function drawSlope(animate) {
+  L.slope.selectAll('*').remove();
+  const left = SUBS.map(s => ({ s, v: s.obs_on })).sort((a, b) => b.v - a.v);
+  const right = SUBS.map(s => ({ s, v: s.eff })).sort((a, b) => b.v - a.v);
+  const rankL = new Map(left.map((d, i) => [d.s.name, i])), rankR = new Map(right.map((d, i) => [d.s.name, i]));
+  const xl = W * (narrow ? 0.36 : 0.38), xr = W * (narrow ? 0.64 : 0.62);
+  const top = 70, step = (H - top - 30) / 5.4;
+  const y = i => top + i * step;
+  L.slope.append('text').attr('class', 't-small').attr('text-anchor', 'end').attr('x', xl).attr('y', top - 34).text('Handed to AI');
+  if (!narrow) L.slope.append('text').attr('class', 't-small').attr('text-anchor', 'end').attr('x', xl).attr('y', top - 20).text('(observed exposure)');
+  L.slope.append('text').attr('class', 't-small').attr('x', xr).attr('y', top - 34).text('Done successfully');
+  if (!narrow) L.slope.append('text').attr('class', 't-small').attr('x', xr).attr('y', top - 20).text('(effective exposure)');
+  SUBS.forEach(s => {
+    const a = rankL.get(s.name), b = rankR.get(s.name), d = b - a;
+    const c = d >= 2 ? 'var(--use)' : d <= -2 ? 'var(--eff)' : 'var(--rule-2)';
+    const strong = Math.abs(d) >= 2;
+    const ln = L.slope.append('line').attr('x1', xl + 8).attr('x2', xl + 8).attr('y1', y(a)).attr('y2', y(a)).attr('stroke', c).attr('stroke-width', strong ? 2.5 : 1.5);
+    T(ln, animate).attr('x2', xr - 8).attr('y2', y(b));
+    [[xl + 8, y(a)], [xr - 8, y(b)]].forEach(([cx, cy]) => L.slope.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 4.5).attr('fill', strong ? c : 'var(--rule-2)').attr('stroke', 'var(--paper)').attr('stroke-width', 2));
+    const name = narrow ? TINY[s.name] : SHORT[s.name];
+    L.slope.append('text').attr('class', 't-label' + (strong ? '' : ' dim')).attr('text-anchor', 'end').attr('x', xl - 4).attr('y', y(a) - 1).text(name);
+    L.slope.append('text').attr('class', 't-small').attr('text-anchor', 'end').attr('x', xl - 4).attr('y', y(a) + 13).text(pct(s.obs_on));
+    L.slope.append('text').attr('class', 't-label' + (strong ? '' : ' dim')).attr('x', xr + 4).attr('y', y(b) - 1).text(name);
+    L.slope.append('text').attr('class', 't-small').attr('x', xr + 4).attr('y', y(b) + 13).text(pct(s.eff));
+  });
+}
+
+function drawDrivers() {
+  L.drivers.selectAll('*').remove();
+  const C = 'claude_ai', A = '1p_api';
+  const panels = [
+    { title: narrow ? 'Expertise' : 'Expertise needed', sub: narrow ? 'both platforms' : `both platforms · R² ${D.drivers.expertise.r2.toFixed(2)} and ${D.drivers.expertise_api.r2.toFixed(2)}`,
+      unit: 'years', xl: narrow ? 'years →' : 'years of education →',
+      series: [
+        { p: C, pts: tasks.filter(t => t.succ[C] != null).map(t => ({ t, x: t.yrs, y: t.succ[C] })), f: D.drivers.expertise },
+        { p: A, pts: tasks.filter(t => t.succ[A] != null).map(t => ({ t, x: t.yrs, y: t.succ[A] })), f: D.drivers.expertise_api }] },
+    { title: narrow ? 'Person-hours' : 'Time a person would need', sub: narrow ? 'Claude.ai' : `Claude.ai chat · R² ${D.drivers.hot.r2.toFixed(2)}`,
+      unit: 'hours', xl: narrow ? 'hours →' : 'hours, person working alone →',
+      series: [{ p: C, pts: tasks.filter(t => t.succ[C] != null && t.hot != null).map(t => ({ t, x: t.hot, y: t.succ[C] })), f: D.drivers.hot }] },
+    { title: narrow ? 'Context' : 'Context the task needs', sub: narrow ? '1P API' : `1P API · R² ${D.drivers.input.r2.toFixed(2)}`,
+      unit: 'log index', xl: narrow ? 'log index →' : 'input length, log index →',
+      series: [{ p: A, pts: tasks.filter(t => t.succ[A] != null && t.lnin != null).map(t => ({ t, x: t.lnin, y: t.succ[A] })), f: D.drivers.input }] },
+  ];
+  // every panel carries its own success axis, so each one reads on its own
+  const gap = narrow ? 10 : 24, yW = narrow ? 30 : 40;
+  const pw = (W - gap * 2) / 3, ph = Math.min(H, 430), oy = (H - ph) / 2;
+  const m = { t: 82, b: 36, r: 6 };
+  const y = d3.scaleLinear().domain([0, 100]).range([ph - m.b, m.t]);
+  const ticks = narrow ? [0, 50, 100] : [0, 25, 50, 75, 100];
+  const root = L.drivers.append('g').attr('transform', `translate(0,${oy})`);
+  panels.forEach((p, i) => {
+    const g = root.append('g').attr('transform', `translate(${i * (pw + gap)},0)`);
+    const all = p.series.flatMap(se => se.pts);
+    const x = d3.scaleLinear().domain(d3.extent(all, d => d.x)).nice().range([yW, pw - m.r]);
+    g.append('text').attr('class', 't-label').attr('x', 0).attr('y', 14).text(p.title);
+    g.append('text').attr('class', 't-small').attr('x', 0).attr('y', 30).text(p.sub);
+    g.append('text').attr('class', 't-small').attr('x', 0).attr('y', m.t - 14).text(narrow ? 'success % ↑' : 'task success ↑');
+    ticks.forEach(v => {
+      g.append('line').attr('x1', yW).attr('x2', pw - m.r).attr('y1', y(v)).attr('y2', y(v)).attr('stroke', v === 0 ? 'var(--rule-2)' : 'var(--rule)');
+      g.append('text').attr('class', 't-small').attr('x', yW - 6).attr('y', y(v) + 4).attr('text-anchor', 'end').text(narrow ? v : v + '%');
+    });
+    x.ticks(narrow ? 2 : 4).forEach(v => g.append('text').attr('class', 't-small').attr('x', x(v)).attr('y', ph - m.b + 16).attr('text-anchor', 'middle').text(v));
+    g.append('text').attr('class', 't-small').attr('x', pw - m.r).attr('y', ph - 2).attr('text-anchor', 'end').text(p.xl);
+    const [x0, x1] = x.domain();
+    p.series.forEach(se => {
+      const api = se.p === A;
+      g.selectAll(null).data(se.pts).enter().append('circle').attr('cx', d => x(d.x)).attr('cy', d => y(d.y)).attr('r', narrow ? 3.5 : 4.5)
+        .attr('fill', api ? 'var(--paper)' : 'var(--eff)').attr('fill-opacity', api ? 1 : .8)
+        .attr('stroke', api ? 'var(--eff)' : 'var(--paper)').attr('stroke-width', api ? 2 : 1.5)
+        .on('pointerenter pointermove', (e, d) => showTip(e, taskTip(d.t, `${api ? '1P API' : 'Claude.ai'} success ${d.y.toFixed(0)}% · ${p.title.toLowerCase()}: ${d.x.toFixed(2)} ${p.unit}`)))
+        .on('pointerleave', hideTip);
+      g.append('line').attr('x1', x(x0)).attr('x2', x(x1)).attr('y1', y(se.f.icpt + se.f.slope * x0)).attr('y2', y(se.f.icpt + se.f.slope * x1))
+        .attr('stroke', 'var(--ink)').attr('stroke-width', 2).attr('stroke-dasharray', api ? '6 4' : null);
+      if (p.series.length > 1) g.append('text').attr('class', 't-small halo').attr('text-anchor', 'end').attr('x', x(x1)).attr('y', y(se.f.icpt + se.f.slope * x1) + (api ? 15 : -7)).text(api ? 'API' : 'chat');
+    });
+  });
+}
+
+const CAPTIONS = {
+  read: 'Release 5 · Share of each part\'s working time · Source: Eloundou et al. (2024); O*NET 30.2; author\'s calculations',
+  cap: 'Release 5 · Capability rating β ≥ 0.5, weighted by task time · Source: Eloundou et al. (2024); O*NET 30.2',
+  obs: 'Release 5 · Observed exposure, usage gate on · Source: Anthropic Economic Index; author\'s calculations',
+  tasks: 'Release 5 · Any usage on Claude.ai or the 1P API · Source: Anthropic Economic Index',
+  conc: 'Release 5 · Dot area: share of R2R conversations on Claude.ai · Source: Anthropic Economic Index',
+  channel: 'Release 5 · Automation = directive + feedback-loop conversations · Source: Anthropic Economic Index',
+  expertise: 'Release 5 · Ridge task expertise (years) · Source: author\'s estimates from BLS and O*NET; Anthropic Economic Index',
+  funnel: 'Release 5 · All three bars weighted by task time · Source: Anthropic Economic Index; Eloundou et al. (2024)',
+  flip: 'Release 5 · Rank by observed exposure (gate on) vs effective exposure · Source: author\'s calculations',
+  drivers: 'Release 5 · Task success as judged by Anthropic\'s classifier · Source: Anthropic Economic Index',
+  circle: 'Release 5 · Capability vs effective exposure, by part · Source: author\'s calculations',
+};
+
+function render(state, animate = true) {
+  cur = state;
+  if (!layout()) return;
+  hideTip();
+  $('#viz-cap').textContent = CAPTIONS[state] || '';
+  const g = rg();
+  const cap = SUBS.map(s => s.cap), obs = SUBS.map(s => s.obs_on), eff = SUBS.map(s => s.eff);
+  const radarStates = ['read', 'cap', 'obs', 'circle'];
+  if (radarStates.includes(state)) {
+    drawRadarFrame();
+    showLayers(['grid', 'radar', 'annot', 'dots'], animate);
+    radarShapes({ cap: state === 'read' ? null : cap, obs: state === 'obs' ? obs : null, eff: state === 'circle' ? eff : null }, animate);
+    drawDots(state, animate);
+    L.grid.selectAll('line.spoke').attr('stroke', (d, i, n) => state === 'read' && +n[i].dataset.i === 1 ? 'var(--ink)' : null).attr('stroke-width', (d, i, n) => state === 'read' && +n[i].dataset.i === 1 ? 3 : 1);
+    const notes = [];
+    if (state === 'cap') {
+      notes.push({ id: 'c1', x: 0, y: 14, dot: false, text: `Whole process:
+${pct(P.cap_time, 1)} could be done`, bold: true });
+    }
+    if (state === 'obs') {
+      const [x, y] = rpt(2, obs[2], g); const [x2, y2] = rpt(3, obs[3], g);
+      notes.push(narrow ? { id: 'o1', x, y, dx: -6, dy: 56, anchor: 'end', text: `Close ${pct(obs[2])}`, bold: true }
+                        : { id: 'o1', x, y, dx: 24, dy: 56, text: `Close & Consolidation\n${pct(obs[2])}`, bold: true });
+      notes.push({ id: 'o2', x: x2, y: y2, dx: narrow ? -14 : -30, dy: narrow ? 52 : 80, anchor: 'end', text: `Report ${pct(obs[3])}` });
+    }
+    if (state === 'circle') notes.push({ id: 'z1', x: 0, y: 14, dot: false, text: `Whole process:
+${pct(P.cap_time, 1)} could be done
+${pct(P.eff_time)} done successfully`, bold: true });
+    annotate(notes, animate);
+  } else if (state === 'tasks' || state === 'conc' || state === 'expertise') {
+    showLayers(['dots', 'annot'], animate);
+    drawDots(state, animate);
+    const notes = [];
+    if (state === 'conc') {
+      const t = usedC[0], p = POS.conc[t.id];
+      notes.push({ id: 'k1', x: p.x, y: p.y - p.r, dx: 0, dy: -6, dot: false, anchor: 'middle', text: `${t.uC.toFixed(0)}% from one task`, bold: true });
+    }
+    if (state === 'expertise') {
+      [['Record', 'busiest'], ['Analysis & Business Insight', 'one task']].forEach(([s, word], i) => {
+        const p = POS.exp.map[PART[s].top.id];
+        const left = p.x + p.r + 110 > W;
+        notes.push({ id: 'e' + i, x: left ? p.x - p.r : p.x + p.r, y: p.y, dx: left ? -6 : 6, dy: 4, dot: false, anchor: left ? 'end' : 'start', text: `${word}: ${pct(PART[s].topShare)}`, bold: true });
+      });
+    }
+    annotate(notes, animate);
+  } else if (state === 'channel') {
+    showLayers(['channel'], animate);
+    drawDots('channel', animate);
+    drawChannel(animate);
+    annotate([], animate);
+  } else if (state === 'funnel') {
+    showLayers(['bars'], animate);
+    drawDots('funnel', animate);
+    drawBars(animate);
+    annotate([], animate);
+  } else if (state === 'flip') {
+    showLayers(['slope'], animate);
+    drawSlope(animate);
+    annotate([], animate);
+  } else if (state === 'drivers') {
+    showLayers(['drivers'], animate);
+    drawDrivers();
+    annotate([], animate);
+  }
+}
+
+// ---------- step tracking (scroll position, not IntersectionObserver, so it is exact both ways)
+const steps = $$('.step');
+let ticking = false;
+function onScroll() {
+  ticking = false;
+  if ($('#story').hidden) return;
+  const line = innerHeight * (innerWidth <= 860 ? 0.72 : 0.55);
+  let active = steps[0];
+  for (const s of steps) { const top = s.querySelector('.card').getBoundingClientRect().top; if (top < line) active = s; }
+  steps.forEach(s => s.classList.toggle('is-active', s === active));
+  const st = active.dataset.state;
+  if (st !== cur) render(st, true);
+}
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+new ResizeObserver(() => { if (!$('#story').hidden) render(cur, false); }).observe(fig);
+
+// ================================================================= EXPLORE
+const ex = { rel: 5, plat: 'claude_ai', col: 'u', q: '', sel: usedC[0] ? usedC[0].id : tasks[0].id };
+function seg(id, items, key) {
+  const box = $(id); box.innerHTML = '';
+  items.forEach(it => {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = it.label; b.dataset.v = it.v;
+    b.addEventListener('click', () => { ex[key] = it.v; fixState(); renderExplore(); });
+    box.appendChild(b);
+  });
+}
+seg('#seg-rel', [1, 2, 3, 4, 5].map(r => ({ v: r, label: 'R' + r })), 'rel');
+seg('#seg-plat', [{ v: 'claude_ai', label: 'Claude.ai' }, { v: '1p_api', label: '1P API' }], 'plat');
+seg('#seg-col', [{ v: 'u', label: 'Usage share' }, { v: 'a', label: 'Automation' }, { v: 'h', label: 'Hours' }, { v: 'yrs', label: 'Expertise' }, { v: 'wage', label: 'Wage' }], 'col');
+$('#q').addEventListener('input', e => { ex.q = e.target.value.trim().toLowerCase(); renderExplore(); });
+function fixState() {
+  if (ex.rel < 3 && ex.plat === '1p_api') ex.plat = 'claude_ai';
+  if (ex.rel < 2 && ex.col === 'a') ex.col = 'u';
+}
+const U_BINS = [0.25, 0.5, 1, 2.5, 5], A_BINS = [20, 40, 60, 80];
+// task properties: binned into fifths of the 91 tasks, so a colour says "high or low among R2R tasks"
+const ATTR = {
+  h: { label: 'Hours per week (typical worker)', short: 'hours per week', fmt: v => v.toFixed(1) + ' h' },
+  yrs: { label: 'Expertise needed', short: 'expertise needed', fmt: v => v.toFixed(1) + ' yrs' },
+  wage: { label: 'Mean wage of the occupation', short: 'mean wage', fmt: v => '$' + v.toFixed(0) + '/h' },
+};
+Object.values(ATTR).forEach(a => a.vs = []);
+Object.entries(ATTR).forEach(([k, a]) => {
+  a.vs = tasks.map(t => t[k]).sort(d3.ascending);
+  a.q = [0.2, 0.4, 0.6, 0.8].map(q => d3.quantileSorted(a.vs, q));
+  a.min = a.vs[0]; a.max = a.vs[a.vs.length - 1];
+});
+const isAttr = c => c in ATTR;
+const fmtVal = v => isAttr(ex.col) ? ATTR[ex.col].fmt(v) : v.toFixed(ex.col === 'u' ? 2 : 0) + '%';
+const valName = () => isAttr(ex.col) ? ATTR[ex.col].short : ex.col === 'u' ? 'usage share' : 'automation';
+function colorFor(v) {
+  const k = ex.col === 'u' ? 'seq' : ex.col === 'a' ? 'red' : 'yel';
+  const ramp = d3.piecewise(d3.interpolateLab, [tok(`--${k}-lo`), tok(`--${k}-mid`), tok(`--${k}-hi`)]);
+  const bins = isAttr(ex.col) ? ATTR[ex.col].q : ex.col === 'u' ? U_BINS : A_BINS, n = bins.length;
+  return ramp(d3.bisectRight(bins, v) / n);
+}
+function renderExplore() {
+  $$('#seg-rel button').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.v === ex.rel)));
+  $$('#seg-plat button').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.v === ex.plat)); b.disabled = b.dataset.v === '1p_api' && ex.rel < 3; });
+  $$('#seg-col button').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.v === ex.col)); b.disabled = b.dataset.v === 'a' && ex.rel < 2; });
+  const key = `${ex.plat}_${ex.rel}`;
+  const val = t => { if (isAttr(ex.col)) return t[ex.col]; const r = t.rel[key]; if (!r) return null; return ex.col === 'u' ? r.u : r.a; };
+  // legend
+  const bins = ex.col === 'u' ? U_BINS : A_BINS;
+  const lg = $('#legend'); lg.innerHTML = '';
+  const add = (html, bg, cls = '') => { const s = document.createElement('span'); s.className = 'sw'; s.innerHTML = `<i class="${cls}" style="${bg}"></i>${html}`; lg.appendChild(s); };
+  if (isAttr(ex.col)) {
+    const a = ATTR[ex.col], e = [a.min, ...a.q, a.max];
+    e.slice(0, -1).map((lo, i) => [`${a.fmt(lo)} to ${a.fmt(e[i + 1])}`, `background:${colorFor(i === 0 ? lo : lo + 1e-9)}`])
+      .reverse().forEach(([txt, bg]) => add(txt, bg));
+  } else {
+  const edges = [0, ...bins];
+  edges.map((e, i) => {
+    const hiE = bins[i];
+    const txt = hiE == null ? (ex.col === 'u' ? `over ${e}%` : `${e} to 100%`) : (ex.col === 'u' && i === 0 ? `under ${hiE}%` : `${e} to ${hiE}%`);
+    return [txt, `background:${colorFor(i === 0 ? 0 : e + 1e-9)}`];
+  }).reverse().forEach(([txt, bg]) => add(txt, bg));
+  add(ex.col === 'u' ? 'Not used' : 'No data', 'background:repeating-linear-gradient(135deg,transparent 0 4px,var(--rule) 4px 5px);box-shadow:inset 0 0 0 1px var(--rule-2)');
+  }
+  const legendTitle = document.createElement('span'); legendTitle.className = 'count';
+  legendTitle.textContent = isAttr(ex.col) ? `· ${ATTR[ex.col].short}: each colour holds a fifth of the 91 tasks, the same in every release` : ex.col === 'u' ? `· share of R2R usage on ${ex.plat === '1p_api' ? 'the 1P API' : 'Claude.ai'}, R${ex.rel}` : `· share of the task's conversations that are automation, R${ex.rel}`;
+  lg.appendChild(legendTitle);
+  // groups
+  const box = $('#groups'); box.innerHTML = '';
+  let matches = 0;
+  SUBS.forEach(s => {
+    const list = tasks.filter(t => t.sp === s.name).sort((a, b) => (val(b) ?? -1) - (val(a) ?? -1));
+    const used = list.filter(t => t.rel[key]).length;
+    const grp = document.createElement('div'); grp.className = 'group';
+    grp.innerHTML = `<header><h3>${s.name}</h3><span class="count">${s.n} tasks · ${pct(s.time_share)} of process time · ${used} used in R${ex.rel}</span></header>`;
+    const tiles = document.createElement('div'); tiles.className = 'tiles';
+    list.forEach(t => {
+      const v = val(t);
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'tilebtn';
+      if (v == null || (ex.col === 'u' && v === 0)) b.classList.add('zero'); else b.style.background = colorFor(v);
+      if (t.id === ex.sel) b.classList.add('sel');
+      const hit = !ex.q || t.s.toLowerCase().includes(ex.q) || t.occ.toLowerCase().includes(ex.q);
+      if (!hit) b.classList.add('dim'); else matches++;
+      b.setAttribute('aria-label', `${t.s} (${v == null ? 'no data' : valName() + ' ' + fmtVal(v)})`);
+      b.addEventListener('click', () => {
+        ex.sel = t.id; renderExplore();
+        // on one-column layouts the detail panel sits below the grid, so bring it into view
+        if (innerWidth <= 900) $('#detail').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      });
+      b.addEventListener('pointerenter', e => showTip(e, taskTip(t, v == null ? 'no data for this selection' : `${valName()}: ${fmtVal(v)}`)));
+      b.addEventListener('pointerleave', hideTip);
+      tiles.appendChild(b);
+    });
+    grp.appendChild(tiles); box.appendChild(grp);
+  });
+  if (ex.q) { const c = document.createElement('p'); c.className = 'count'; c.textContent = `${matches} task${matches === 1 ? '' : 's'} match “${ex.q}”`; box.prepend(c); }
+  renderDetail();
+}
+function renderDetail() {
+  const t = tasks.find(x => x.id === ex.sel);
+  const f = (v, d = 1, u = '') => v == null ? 'no data' : v.toFixed(d) + u;
+  const conv = p => t.conv[p] ? d3.format(',')(t.conv[p]) : 'none';
+  $('#detail').innerHTML = `
+    <div class="meta">Selected task · O*NET ${t.id}</div>
+    <div class="stmt">${cap(t.s)}</div>
+    <div class="chips"><span class="chip">${t.sp}</span><span class="chip">${t.occ}</span></div>
+    <div class="cmp"><div class="meta">Compared with all 91 Record-to-Report tasks</div><div class="cmp" id="cmp"></div></div>
+    <table class="facts"><tbody>
+      <tr><td>AI capability rating β</td><td>${f(t.beta, 1)}</td></tr>
+      <tr class="subrow"><td colspan="2">Release 5</td></tr>
+      <tr><td>Conversations, Claude.ai / API</td><td>${conv('claude_ai')} / ${conv('1p_api')}</td></tr>
+      <tr><td>Automation share, Claude.ai / API</td><td>${f(t.aC, 0, '%')} / ${f(t.aA, 0, '%')}</td></tr>
+      <tr><td>Task success, Claude.ai / API</td><td>${f(t.succ.claude_ai, 0, '%')} / ${f(t.succ['1p_api'], 0, '%')}</td></tr>
+      <tr><td>Time a person alone would need</td><td>${f(t.hot, 1, ' h')}</td></tr>
+      <tr><td>Observed exposure score</td><td>${t.rt == null ? 'no data' : pct(t.rt)}${t.gate ? '' : ' (below volume gate)'}</td></tr>
+    </tbody></table>
+    <div><div class="meta" style="margin-bottom:6px">Share of R2R usage by release</div><svg id="spark" role="img" aria-label="Usage share of this task across releases"></svg></div>`;
+  drawSpark(t);
+  drawCompare(t);
+}
+function drawCompare(t) {
+  const box = d3.select('#cmp');
+  Object.entries(ATTR).forEach(([k, a]) => {
+    const v = t[k], higher = a.vs.filter(x => x < v).length / (a.vs.length - 1);
+    const band = higher >= 0.8 ? 'top fifth' : higher < 0.2 ? 'bottom fifth' : 'middle three-fifths';
+    const row = box.append('div').attr('class', 'cmp-row');
+    row.append('div').attr('class', 'cmp-top').html(`<span>${a.label}</span><b>${a.fmt(v)}</b>`);
+    const sv = row.append('svg').attr('role', 'img').attr('aria-label', `${a.fmt(v)}, higher than ${Math.round(higher * 100)}% of the other tasks`);
+    const w = sv.node().getBoundingClientRect().width || 320, h = 30;
+    sv.attr('viewBox', `0 0 ${w} ${h}`);
+    const x = d3.scaleLinear().domain([a.min, a.max]).range([7, w - 7]);
+    sv.append('line').attr('x1', x(a.min)).attr('x2', x(a.max)).attr('y1', 15).attr('y2', 15).attr('stroke', 'var(--rule)');
+    a.vs.forEach(u => sv.append('line').attr('x1', x(u)).attr('x2', x(u)).attr('y1', 9).attr('y2', 21).attr('stroke', 'var(--rule-2)'));
+    sv.append('rect').attr('x', x(v) - 6).attr('y', 9).attr('width', 12).attr('height', 12).attr('fill', 'var(--ink)').attr('stroke', 'var(--card)').attr('stroke-width', 2);
+    row.append('div').attr('class', 'cmp-note').text(`Higher than ${Math.round(higher * 100)}% of the other tasks · ${band} · range ${a.fmt(a.min)} to ${a.fmt(a.max)}`);
+  });
+}
+function drawSpark(t) {
+  const s = d3.select('#spark'), w = s.node().getBoundingClientRect().width || 320, h = 130, m = { l: 34, r: 64, t: 10, b: 22 };
+  s.attr('viewBox', `0 0 ${w} ${h}`);
+  const series = [{ p: 'claude_ai', name: 'Claude.ai', dash: null }, { p: '1p_api', name: '1P API', dash: '5 4' }].map(se => ({ ...se, pts: [1, 2, 3, 4, 5].map(r => ({ r, v: t.rel[`${se.p}_${r}`]?.u ?? (r >= (se.p === '1p_api' ? 3 : 1) ? 0 : null) })).filter(d => d.v != null) }));
+  const ymax = Math.max(0.5, d3.max(series.flatMap(se => se.pts), d => d.v) || 0);
+  const x = d3.scalePoint().domain([1, 2, 3, 4, 5]).range([m.l, w - m.r]), y = d3.scaleLinear().domain([0, ymax]).nice(3).range([h - m.b, m.t]);
+  y.ticks(3).forEach(v => { s.append('line').attr('x1', m.l).attr('x2', w - m.r).attr('y1', y(v)).attr('y2', y(v)).attr('stroke', 'var(--rule)'); s.append('text').attr('class', 't-small').attr('x', m.l - 6).attr('y', y(v) + 4).attr('text-anchor', 'end').text(v + '%'); });
+  [1, 2, 3, 4, 5].forEach(r => s.append('text').attr('class', 't-small').attr('x', x(r)).attr('y', h - 6).attr('text-anchor', 'middle').text('R' + r));
+  series.forEach(se => {
+    if (!se.pts.length) return;
+    s.append('path').attr('d', d3.line().x(d => x(d.r)).y(d => y(d.v))(se.pts)).attr('fill', 'none').attr('stroke', 'var(--ink)').attr('stroke-width', 2).attr('stroke-dasharray', se.dash).attr('stroke-linecap', 'round');
+    se.pts.forEach(d => s.append('circle').attr('cx', x(d.r)).attr('cy', y(d.v)).attr('r', 4).attr('fill', se.dash ? 'var(--card)' : 'var(--ink)').attr('stroke', se.dash ? 'var(--ink)' : 'var(--card)').attr('stroke-width', 2));
+    const last = se.pts[se.pts.length - 1];
+    s.append('text').attr('class', 't-small').attr('x', x(last.r) + 8).attr('y', y(last.v) + (se.p === '1p_api' ? 12 : -2)).text(se.name);
+  });
+}
+
+// re-colour on theme change
+const rerender = () => { if (!$('#explore').hidden) renderExplore(); };
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', rerender);
+new MutationObserver(rerender).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+// ---------------------------------------------------------------- boot
+window.__story = { render: s => render(s, false) };   // lets a test harness step through the states
+fixState();
+const startTab = location.hash.slice(1);
+if (TABS.includes(startTab) && startTab !== 'story') showTab(startTab, false);
+else { render('read', false); onScroll(); }
+})();
+</script>
