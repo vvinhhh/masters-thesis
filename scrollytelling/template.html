@@ -359,8 +359,10 @@ footer .inner { max-width: 1240px; margin: 0 auto; padding-block: 28px 40px; fon
       <article class="step" data-state="circle"><div class="card">
         <h2>The gap is the work people still do</h2>
         <p class="sub">Back to the start</p>
-        <p>The blue shape is what AI could do. The green shape is what it successfully gets done today. The space between them is the reviewing, reconciling and deciding that still runs through people, and it is where accounting jobs are being redrawn.</p>
-        <p><span class="key"><i style="background:var(--cap)"></i>Could be done</span><span class="key"><i style="background:var(--eff)"></i>Done successfully</span></p>
+        <p>Blue is what AI could do. Red is what people hand to it at work. Green is what it successfully gets done. Where red reaches past green, in Close &amp; Consolidation and Record, more is handed over than delivered. Where green reaches past red, people working with AI get done more than the automated use alone suggests.</p>
+        <p>The space between blue and green is the reviewing, reconciling and deciding that still runs through people, and it is where accounting jobs are being redrawn.</p>
+        <p><span class="key"><i style="background:var(--cap)"></i>Could be done</span><span class="key"><i style="background:var(--use)"></i>Handed to AI</span><span class="key"><i style="background:var(--eff)"></i>Done successfully</span></p>
+        <p class="note">Red counts automated work use at volume. Green counts every use, collaborative or not, weighted by success. That is why the two can cross.</p>
       </div></article>
     </div>
   </div>
@@ -949,7 +951,7 @@ const CAPTIONS = {
   funnel: 'Release 5 · All three bars weighted by task time · Source: Anthropic Economic Index; Eloundou et al. (2024)',
   flip: 'Release 5 · Rank by observed exposure (gate on) vs effective exposure · Source: author\'s calculations',
   drivers: 'Release 5 · Task success as judged by Anthropic\'s classifier · Source: Anthropic Economic Index',
-  circle: 'Release 5 · Capability vs effective exposure, by part · Source: author\'s calculations',
+  circle: 'Release 5 · Capability, observed exposure (gate on) and effective exposure, by part · Source: author\'s calculations',
 };
 
 function render(state, animate = true) {
@@ -963,7 +965,8 @@ function render(state, animate = true) {
   if (radarStates.includes(state)) {
     drawRadarFrame();
     showLayers(['grid', 'radar', 'annot', 'dots'], animate);
-    radarShapes({ cap: state === 'read' ? null : cap, obs: state === 'obs' ? obs : null, eff: state === 'circle' ? eff : null }, animate);
+    // the closing radar overlays could be done, handed to AI and done successfully; the last two cross
+    radarShapes({ cap: state === 'read' ? null : cap, obs: state === 'obs' || state === 'circle' ? obs : null, eff: state === 'circle' ? eff : null }, animate);
     drawDots(state, animate);
     L.grid.selectAll('line.spoke').attr('stroke', (d, i, n) => state === 'read' && +n[i].dataset.i === 1 ? 'var(--ink)' : null).attr('stroke-width', (d, i, n) => state === 'read' && +n[i].dataset.i === 1 ? 3 : 1);
     const notes = [];
@@ -979,6 +982,7 @@ ${pct(P.cap_time, 1)} could be done`, bold: true });
     }
     if (state === 'circle') notes.push({ id: 'z1', x: 0, y: 14, dot: false, text: `Whole process:
 ${pct(P.cap_time, 1)} could be done
+${pct(P.obs_on)} handed to AI
 ${pct(P.eff_time)} done successfully`, bold: true });
     annotate(notes, animate);
   } else if (state === 'tasks' || state === 'conc' || state === 'expertise') {
