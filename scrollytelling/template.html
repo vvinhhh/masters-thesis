@@ -132,8 +132,9 @@ p { margin: 0; }
 @media (max-width: 860px) {
   .scrolly { grid-template-columns: minmax(0, 1fr); gap: 0; }
   /* chart and steps share one grid cell, so the chart stays pinned for the whole run of steps */
-  .figure { grid-area: 1 / 1; align-self: start; height: 54svh; top: calc(var(--hdr) + env(safe-area-inset-top, 0px)); background: var(--paper); padding-top: 8px; }
-  .steps { grid-area: 1 / 1; padding-block: 58svh 30svh; }
+  /* on phones the chart sits above the text: boxes scroll up underneath it, so the chart is never covered */
+  .figure { grid-area: 1 / 1; align-self: start; height: 54svh; top: calc(var(--hdr) + env(safe-area-inset-top, 0px)); background: var(--paper); padding-top: 8px; z-index: 3; box-shadow: 0 1px 0 var(--rule), 0 10px 14px -8px rgba(0, 0, 0, .18); }
+  .steps { grid-area: 1 / 1; padding-block: 58svh 30svh; z-index: 2; }
   .step, .step:first-child { min-height: 92svh; align-items: flex-end; }
   .card { padding: 20px; }
   .card h2 { font-size: 23px; }
@@ -1028,7 +1029,8 @@ let ticking = false;
 function onScroll() {
   ticking = false;
   if ($('#story').hidden) return;
-  const line = innerHeight * (innerWidth <= 860 ? 0.72 : 0.55);
+  // phones: the chart covers the top of the screen, so a step starts once its box rises into the lower part
+  const line = innerHeight * (innerWidth <= 860 ? 0.82 : 0.55);
   let active = steps[0];
   for (const s of steps) { const top = s.querySelector('.card').getBoundingClientRect().top; if (top < line) active = s; }
   steps.forEach(s => s.classList.toggle('is-active', s === active));
