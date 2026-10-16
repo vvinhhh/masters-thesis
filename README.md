@@ -9,6 +9,8 @@ The thesis measures *observed* generative-AI exposure in the Record-to-Report (R
 
 **Interactive version:** [vvinhhh.github.io/masters-thesis](https://vvinhhh.github.io/masters-thesis/), a scrolling data story with an explorer of all 91 tasks.
 
+**The thesis:** [Le_2026_You_Will_Be_Replaced.pdf](docs/Le_2026_You_Will_Be_Replaced.pdf) (PDF, 134 pages).
+
 ## Repository layout
 
 ```

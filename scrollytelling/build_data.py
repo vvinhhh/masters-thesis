@@ -7,7 +7,9 @@ number on the page matches the thesis. Run from anywhere:
 
 Writes scrollytelling/data.json and scrollytelling/index.html (template.html with the
 data inlined, so the page works as a single file, even opened from disk), and copies the
-page plus social-card.png into docs/, the folder GitHub Pages publishes.
+page plus social-card.png (published as preview-opening-screen.png) into docs/, the folder
+GitHub Pages publishes. LinkedIn caches preview images by URL, so rename the published file
+whenever the image changes, here and in the og:image tag in template.html.
 
 social-card.png (the link-preview image for LinkedIn etc.) is a screenshot of the page's first
 screen on a 1440x753 laptop view, scaled to 1200x628. To redo it, serve this folder locally
@@ -184,7 +186,8 @@ def main():
     (docs / ".nojekyll").write_text("", encoding="utf-8")
     card = HERE / "social-card.png"
     if card.exists():
-        (docs / "social-card.png").write_bytes(card.read_bytes())
+        (docs / "preview-opening-screen.png").write_bytes(card.read_bytes())
+    (docs / "social-card.png").unlink(missing_ok=True)   # old name, cached by LinkedIn with the old image
     print(f"[write] data.json ({len(tasks)} tasks), artifact.html, index.html, docs/")
     print("process:", process)
     print("channel:", channel, "concentration:", conc)
