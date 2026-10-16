@@ -1053,7 +1053,7 @@ function seg(id, items, key) {
 }
 seg('#seg-rel', [1, 2, 3, 4, 5].map(r => ({ v: r, label: 'R' + r })), 'rel');
 seg('#seg-plat', [{ v: 'claude_ai', label: 'Claude.ai' }, { v: '1p_api', label: '1P API' }], 'plat');
-seg('#seg-col', [{ v: 'u', label: 'Usage share' }, { v: 'a', label: 'Automation' }, { v: 'h', label: 'Hours' }, { v: 'yrs', label: 'Expertise' }, { v: 'wage', label: 'Wage' }], 'col');
+seg('#seg-col', [{ v: 'u', label: 'Usage share' }, { v: 'a', label: 'Automation share' }], 'col');
 $('#q').addEventListener('input', e => { ex.q = e.target.value.trim().toLowerCase(); renderExplore(); });
 function fixState() {
   if (ex.rel < 3 && ex.plat === '1p_api') ex.plat = 'claude_ai';
